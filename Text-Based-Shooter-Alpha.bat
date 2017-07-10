@@ -234,6 +234,66 @@ if %InputGOWF3%  equ n goto startup
 
 goto GameOver1WF3
 
+:GameOver2WF3
+cls
+echo ------===========================------
+echo You roll into the Enemie, You take a hit
+echo               GAME OVER!
+echo.
+echo.
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF3=Continue?:
+
+if %inputGO2WF3% equ Y goto WF3
+if %inputGO2WF3% equ y goto WF3
+if %inputGO2WF3% equ N goto startup
+if %inputGO2WF3% equ n goto startup
+
+goto GameOver2WF3
+
+:WF4
+cls
+echo ------===========================------
+echo You shoot the enemie, It dies, but
+echo the bullet is still after you...
+echo do you...
+echo.
+echo A) Roll under it
+echo B) Jump over it
+echo ------===========================------
+set /p InputWF4=Enter:
+
+if %InputWF4% equ A goto WF5
+if %InputWF4% equ a goto WF5
+if %InputWF4% equ B goto WF5
+if %InputWF4% equ b goto WF5
+
+goto WF4
+
+:WF5
+cls
+echo ------===========================------
+echo You Dodged the bullet, There is a chance
+echo to strike the Enemie... Do you...
+echo.
+echo A) Jump over the enemie and move on
+echo B) Shoot the enemie and move on
+echo C) Charge your beam
+echo ------===========================------
+set /p InputWF5=Enter:
+
+if %InputWF5% equ A goto WF5
+if %InputWF5% equ a goto WF5
+if %InputWF5% equ B goto WF5
+if %InputWF5% equ b goto WF5
+if %InputWF5% equ C goto GameOverWF5
+if %InputWF5% equ c goto GameOverWF5
+
+goto WF5
+
+
+
 
 
 
