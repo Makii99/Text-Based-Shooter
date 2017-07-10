@@ -1,10 +1,10 @@
 @echo off
-TITLE ---=====Mega-Man Alpha=====---
+TITLE ---=====Shooter Alpha=====---
 
 :startup
 cls
-echo ------=========Mega-Man Alpha=========-----------
-echo Welcome to Megaman Text Alpha, Would you like to?
+echo ------=========Shooter Alpha=========-----------
+echo Welcome to Shooter Text Alpha, Would you like to?
 echo.
 echo Play
 echo Info
@@ -130,11 +130,26 @@ if %inputGO2WF1% equ N goto startup
 
 goto GameOver1WF1
 
+:WF2
+cls
+echo ------=============================------
+echo You sit around a big rock, Turns out
+echo that big rock was aucually a Button!
+echo The Waterfalls open up a pathway...
+echo do you...
+echo.
+echo A) Go inside
+echo B) Sit on the rock some more
+echo C) Walk around the Waterfalls
+echo.
+set /p InputWF2=Enter:
 
-
-
-
-
+if %InputWF2% equ A goto WF3
+if %InputWF2% equ a goto WF3
+if %InputWF2% equ B goto GameOver1WF2
+if %InputWF2% equ b goto GameOver1WF2
+if %InputWF2% equ C goto GameOver2WF2
+if %InputWF2% equ c goto GameOver2WF2
 
 
 
