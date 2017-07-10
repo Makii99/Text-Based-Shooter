@@ -1,6 +1,16 @@
 @echo off
 TITLE ---=====Shooter Alpha=====---
 
+:Notice
+cls
+echo This game is licensed under GPLv3. Do you agree with this license?
+set /p input100=y/n:
+if %input100% equ Y goto startup
+if %input100% equ y goto startup
+if %input100% equ N exit
+if %input100% equ n exit
+goto notice
+
 :startup
 cls
 echo ------=========Shooter Alpha=========-----------
@@ -22,8 +32,6 @@ if %input0% equ quit exit
 
 goto startup
 
-
-
 :Info
 cls
 echo ------======================================================------
@@ -34,9 +42,9 @@ echo 2. When Enemies Get Too Close You Want To Jump And Not Take Damage
 echo 3. Jump over pits.
 echo 4. Roll/Jump Over/Under Bullets That Enemies Shoot
 echo 5. Charge your Beam to do massive damage to enemies
-echo 6. If you dont Charge for 2 Moves the Beam will stay charged
+echo 6. If you don't Charge for 2 Moves the Beam will stay charged
 echo 7. Bosses are more difficult then normal enemies, Charge them beams
-echo 8. You only have 1 hp (Hit Point) one hit and your OUT
+echo 8. You only have 1 hp (Hit Point); one hit and you're OUT
 echo Type "Back" to go back to the Title Screen
 echo.
 set /p input1=Enter:
@@ -115,7 +123,7 @@ goto GameOver1WF1
 cls
 echo ------===============================------
 echo You jump in the Waterfalls, Little did you know
-echo the water was Poisenious...
+echo the water was Poisonous...
 echo               GAME OVER!
 echo.
 echo.
@@ -128,7 +136,7 @@ if %inputGO2WF1% equ Y goto WF1
 if %inputGO2WF1% equ n goto startup
 if %inputGO2WF1% equ N goto startup
 
-goto GameOver1WF1
+goto GameOver2WF1
 
 :WF2
 cls
@@ -151,6 +159,8 @@ if %InputWF2% equ b goto GameOver1WF2
 if %InputWF2% equ C goto GameOver2WF2
 if %InputWF2% equ c goto GameOver2WF2
 
+goto WF2
+
 :GameOver1WF2
 cls
 echo ------===========================------
@@ -166,7 +176,7 @@ set /p InputGOWF2=Continue?:
 
 if %InputGOWF2%  equ Y goto WF2
 if %InputGOWF2%  equ y goto WF2
-if %InputGOWF2%  equ Y goto startup
+if %InputGOWF2%  equ N goto startup
 if %InputGOWF2%  equ n goto startup
 
 goto GameOver1WF2
@@ -183,8 +193,8 @@ echo Continue? (y/n)
 echo ------================================------
 set /p InputGO2WF2=Continue?:
 
-if %inputGO2WF2% equ y goto WF1
-if %inputGO2WF2% equ Y goto WF1
+if %inputGO2WF2% equ y goto WF2
+if %inputGO2WF2% equ Y goto WF2
 if %inputGO2WF2% equ n goto startup
 if %inputGO2WF2% equ N goto startup
 
@@ -229,70 +239,10 @@ set /p InputGOWF3=Continue?:
 
 if %InputGOWF3%  equ Y goto WF3
 if %InputGOWF3%  equ y goto WF3
-if %InputGOWF3%  equ Y goto startup
+if %InputGOWF3%  equ N goto startup
 if %InputGOWF3%  equ n goto startup
 
 goto GameOver1WF3
-
-:GameOver2WF3
-cls
-echo ------===========================------
-echo You roll into the Enemie, You take a hit
-echo               GAME OVER!
-echo.
-echo.
-echo Continue? (y/n)
-echo ------===========================------
-set /p InputGO2WF3=Continue?:
-
-if %inputGO2WF3% equ Y goto WF3
-if %inputGO2WF3% equ y goto WF3
-if %inputGO2WF3% equ N goto startup
-if %inputGO2WF3% equ n goto startup
-
-goto GameOver2WF3
-
-:WF4
-cls
-echo ------===========================------
-echo You shoot the enemie, It dies, but
-echo the bullet is still after you...
-echo do you...
-echo.
-echo A) Roll under it
-echo B) Jump over it
-echo ------===========================------
-set /p InputWF4=Enter:
-
-if %InputWF4% equ A goto WF5
-if %InputWF4% equ a goto WF5
-if %InputWF4% equ B goto WF5
-if %InputWF4% equ b goto WF5
-
-goto WF4
-
-:WF5
-cls
-echo ------===========================------
-echo You Dodged the bullet, There is a chance
-echo to strike the Enemie... Do you...
-echo.
-echo A) Jump over the enemie and move on
-echo B) Shoot the enemie and move on
-echo C) Charge your beam
-echo ------===========================------
-set /p InputWF5=Enter:
-
-if %InputWF5% equ A goto WF5
-if %InputWF5% equ a goto WF5
-if %InputWF5% equ B goto WF5
-if %InputWF5% equ b goto WF5
-if %InputWF5% equ C goto GameOverWF5
-if %InputWF5% equ c goto GameOverWF5
-
-goto WF5
-
-
 
 
 
