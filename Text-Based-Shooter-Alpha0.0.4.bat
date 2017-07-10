@@ -191,6 +191,29 @@ if %inputGO2WF2% equ N goto startup
 
 goto GameOver2WF2
 
+:WF3
+cls
+echo ------===========================------
+echo You go inside the cave, There are
+echo Enemies waiting for you, One of them
+echo Shoots a Bullet at you, and another one
+echo Runs at you... Do you...
+echo.
+echo A) Jump over the Enemie and the Bullet
+echo B) Roll under the Bullet and the Enemie
+echo C) Shoot a bullet
+echo ------===========================------
+echo.
+set /p InputWF3=Enter:
+
+if %InputWF3% equ A goto GameOver1WF3
+if %InputWF3% equ a goto GameOver1WF3
+if %InputWF3% equ B goto GameOver2WF3
+if %InputWF3% equ b goto GameOver2WF3
+if %InputWF3% equ C goto WF4
+if %InputWF3% equ c goto WF4
+
+goto WF3
 
 
 
