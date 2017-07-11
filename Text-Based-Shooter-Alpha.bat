@@ -11,10 +11,10 @@ mode con: cols=75 lines=30
 :::   |\_________\|__|\|__|\|_______|\|_______|    \|__|  \|_______|\|__|\|__|
 :::   \|_________|                                                            
 :::		   __          __  ___     __    _ _ 
-:::		  / /  __ __  /  |/  /__ _/ /__ (_|_)
-:::		 / _ \/ // / / /|_/ / _ `/  '_// / /
-:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/ and Mike15678
-:::		     /___/                          
+:::		  / /  __ __  /  |/  /__ _/ /__ (_|_)                                  
+:::		 / _ \/ // / / /|_/ / _ `/  '_// / /                                
+:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike                 
+:::		     /___/                           
 :::                        
 
 :Notice
@@ -32,14 +32,14 @@ goto Notice
 :startup
 cls
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
-echo  	@-----------==========Shooter Alpha=====================@
-echo  	/   Welcome to Shooter Text Alpha, Would you like to?   \ 
+echo  	@====================Shooter Alpha======================@
+echo  	/   Welcome to Text Shooter Alpha, Would you like to?   \ 
 echo  	\                                                       /
 echo  	/                  1. Play   4. Credits                 \
 echo  	\                  2. Info   5. Settings                /
 echo  	/                  3. Quit                              \
 echo  	\                                                       /
-echo  	@-----==================================================@
+echo  	@=======================================================@
 echo.
 set /p input0=Enter:
 
@@ -50,7 +50,7 @@ if %input0% equ info goto Info
 if %input0% equ Quit goto exit
 if %input0% equ quit goto exit
 if %Input0% equ SecretScreen goto Secret!
-if %Input0% equ DevMode goto DevConsole
+if %Input0% equ DevMode goto DevConsoleCode
 if %input0% equ Credits goto Credits
 if %input0% equ Settings goto Settings
 if %input0% equ credits goto Credits
@@ -58,23 +58,114 @@ if %input0% equ settings goto Settings
 
 goto startup
 
+:Settings
+cls
+echo @=========Mak-Settings v0.0.3=========@
+echo ( #                                 # )
+echo ( #    Welcome to Settings, Heres   # )
+echo ( #        What you can do:         # )
+echo ( #    1. Music 2. Under Development# )       
+echo @=====================================@
+ set /p InputSettings=Enter:
+ 
+if %InputSettings% equ Music goto MusicSettingsOff
+if %InputSettings% equ music goto MusicSettingsOff
+if %InputSettings% equ back goto startup
+if %InputSettings% equ Back goto startup
+ 
+ 
+ goto Settings
+ 
+ :MusicSettingsOff
+ cls
+ echo @=========Mak-Settings v0.0.3=========@
+ echo ( #                                 # )
+ echo ( #   Currently, Music is OFF and   # )
+ echo ( #   Everytime you come back here  # )
+ echo ( #  It will be off, so if you want # )
+ echo ( # it on keep it ON and dont come! # )
+ echo ( #   also to turn on say ON and    # )
+ echo ( #          OFF for off            # )
+ echo @=====================================@
+ set /p InputMusicSetting=On/Off:
+ 
+ taskkill /IM CustomSongForShooter /F
+ 
+ if %InputMusicSetting% equ On goto MusicSettingsOn
+ if %InputMusicSetting% equ On goto MusicSettingsOn
+ if %InputMusicSetting% equ Off goto Settings
+ if %InputMusicSetting% equ Off goto Settings
+
+ :MusicSettingsOn
+ cls
+ echo Music is on, Press any button to go back.
+ start CustomSongForShooter.mp3
+ pause >nul
+ 
+ goto Settings
+ 
+:DevPassFailed
+cls
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo     @=========Mak-Security v0.1.6=========@
+echo     ( !!                               !! )
+echo     ( !! You have Guessed incorrectly! !! )
+echo     ( !!  You must now go back and try !! )
+echo     ( !!   try, try, try, try, try     !! )    
+echo     ( !!  Again, but ofc if you tried  !! )                   
+echo     ( !!   7 Times, you might want to  !! )
+echo     ( !!   try some more, Not hurting  !! )
+echo     ( !!   anyone right? i don't care  !! )
+echo     ( !!   also press any key to exit  !! )
+echo     @=====================================@
+pause >nul
+
+exit
+
+:DevConsoleCode
+cls
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo     @=========Mak-Security v0.1.6=========@
+echo     ( !                                 ! )  
+echo     ( !  You are trying to enter into   ! )
+echo     ( !   Dev Mode, You must pass a     ! )
+echo     ( !      Password, What is it?      ! )
+echo     ( !                                 ! )
+echo     @=====================================@
+set /p InputDevPass=Password:
+
+if %InputDevPass% equ Big-Maks goto DevConsole
+if not %InputDevPass% equ Big-Maks goto DevPassFailed
+
+goto DevConsoleCode
+
 :DevConsole
 cls
-echo    @==================================================================@
-echo    / Hello Makii, Mike15678, or literally anyone else who finds this! \
-echo    \                 Where would you like to go?                      /
-echo    /      1. Waterfalls 2. Sunny Hills 3. Haunted Mansion             \
-echo    \                                                                  /
-echo    /              @================================@                  \
-echo    \              /                                \                  /
-echo    /              \ Waiting for Stage Selection... /                  \
-echo    \              /                                \                  /
-echo    /              \                                /                  \
-echo    \              @================================@                  /
-echo    /                                                                  \
-echo    \                                                                  /
-echo    /                                                                  \
-echo    @==================================================================@
+echo    @======================================================@
+echo    / Hello Makii, or litteraly anyone else who finds this,\
+echo    \ Where would you like togo?                           /
+echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
+echo    \                                                      /
+echo    /         @================================@           \
+echo    \         /                                \           /
+echo    /         \ Waiting for Stage Selection... /           \
+echo    \         /                                \           /
+echo    /         \                                /           \
+echo    \         @================================@           /
+echo    /                                                      \
+echo    \                                                      /
+echo    / System Booting...                    Mak-Tech v0.4.3 \
+echo    @======================================================@
 set /p InputDev=Enter a Number:
 
 if %InputDev% equ 1 goto WaterFallSelect
@@ -92,13 +183,13 @@ echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
 echo    \                                                      /
 echo    /         @================================@           \
 echo    \         /Waterfalls, Ok, Now which "Part"\           /
-echo    /         \     Do you want to go to?      /           \
+echo    /         \Do you want to go to?           /           \
 echo    \         /                                \           /
-echo    /         \         Numbers: 1-20          /           \
+echo    /         \       Numbers: 1-20            /           \
 echo    \         @================================@           /
 echo    /                                                      \
 echo    \                                                      /
-echo    /                                                      \
+echo    / System Booted!                       Mak-Tech v0.4.3 \
 echo    @======================================================@
 set /p InputWFDev=Enter a Number:
 
@@ -109,11 +200,11 @@ if %InputWFDev% equ 4 goto WF4
 if %InputWFDev% equ 5 goto WF5
 if %InputWFDev% equ 6 goto WF6
 if %InputWFDev% equ 7 goto WF7LASER1
-if %InputWFDev% equ 1 goto WF8LASER2
-if %InputWFDev% equ 1 goto WF9LASERFIN
-if %InputWFDev% equ 1 goto WF10
-if %InputWFDev% equ 1 goto WF11
-if %InputWFDev% equ 1 goto WF12
+if %InputWFDev% equ 8 goto WF8LASER2
+if %InputWFDev% equ 9 goto WF9LASERFIN
+if %InputWFDev% equ 10 goto WF10
+if %InputWFDev% equ 11 goto WF11
+if %InputWFDev% equ 12 goto WF12
 
 goto WaterFallSelect
 
@@ -563,20 +654,21 @@ echo ------===========================------
 echo You went to the Right, Now there are 
 echo alot of Pillars and Pits, you need
 echo to jump over the pits and onto the 
-echo pillars. What do you do?
+echo pillars.
 echo.
 echo A) Jump.
 echo B) Charge your laser (Blast jump)
 echo C) Run
 echo ------===========================------
-set /p InputWF8=Enter:
+set /p InputWF8
 
-if %InputWF8% equ A goto WF9
-if %InputWF8% equ a goto WF9
+if %InputWF8% equ A goto WF9LASERFIN
+if %InputWF8% equ a goto WF9LASERFIN
 if %InputWF8% equ B goto GameOver1WF8
 if %InputWF8% equ b goto GameOver1WF8
 if %InputWF8% equ C goto GameOver2WF8
 if %InputWF8% equ c goto GameOver2WF8
+
 goto WF8LASER2
 
 :GameOver1WF8
@@ -601,7 +693,7 @@ goto GameOver1WF8
 :GameOver2WF8
 cls
 echo ------===========================------
-echo     You ran over the pit... Yeah,
+echo     You ran over the pits... Yeah,
 echo     like that's ever gonna happen.
 echo        You fell and died.
 echo.
@@ -618,14 +710,66 @@ if %InputGO2WF8% equ n goto startup
 
 goto GameOver2WF8
 
+:WF9LASERFIN
+cls
+echo ------===========================------
+echo  You jump over the pits, like any
+echo  regular human being... but now
+echo  there is a door with a lock on it
+echo  do you...
+echo.
+echo A) Try to break it with a Charged Beam
+echo B) Attempt to Picklock it
+echo C) Sit there... Staring into the lock
+echo ------===========================------
+set /p InputWF9=Enter:
 
+if %inputWF9% equ A goto WF10BOSS
+if %inputWF9% equ a goto WF10BOSS
+if %inputWF9% equ B goto GameOver1WF9
+if %inputWF9% equ b goto GameOver1WF9
+if %inputWF9% equ C goto GameOver2WF9
+if %inputWF9% equ c goto GameOver2WF9
 
+goto WF9LASERFIN
 
+:GameOver1WF9
+cls
+echo ------===========================------
+echo         You picklocked the lock
+echo       without a picklock on hand...
+echo       As if, you gave up and starved.
+echo.
+echo.
+echo               GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF9=Continue?:
 
+if %InputGOWF9% equ Y goto WF9LASERFIN
+if %InputGOWF9% equ y goto WF9LASERFIN
+if %InputGOWF9% equ N goto startup
+if %InputGOWF9% equ n goto startup
 
+goto GameOver1WF9
 
+:GameOver2WF9
+cls
+echo ------==============================------
+echo You stared into the Lock with a mighty rage
+echo      The lock opened... In your dreams
+echo         You gave up and starved.
+echo.
+echo.
+echo                  GAME OVER!
+echo Continue? (y/n)                 
+echo ------==============================------
+set /p InputGO2WF9
 
-
+if %InputGO2WF9% equ Y goto WF9LASERFIN
+if %InputGO2WF9% equ y goto WF9LASERFIN
+if %InputGO2WF9% equ N goto startup
+if %InputGO2WF9% equ n goto startup
 
 
 
