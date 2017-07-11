@@ -12,8 +12,8 @@ mode con: cols=75 lines=30
 :::   \|_________|                                                            
 :::		   __          __  ___     __    _ _ 
 :::		  / /  __ __  /  |/  /__ _/ /__ (_|_)
-:::		 / _ \/ // / / /|_/ / _ `/  '_// / / 
-:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike
+:::		 / _ \/ // / / /|_/ / _ `/  '_// / /
+:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/ and Mike15678
 :::		     /___/                          
 :::                        
 
@@ -60,21 +60,21 @@ goto startup
 
 :DevConsole
 cls
-echo    @======================================================@
-echo    / Hello Makii, or litteraly anyone else who finds this,\
-echo    \ Where would you like togo?                           /
-echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
-echo    \                                                      /
-echo    /         @================================@           \
-echo    \         /                                \           /
-echo    /         \ Waiting for Stage Selection... /           \
-echo    \         /                                \           /
-echo    /         \                                /           \
-echo    \         @================================@           /
-echo    /                                                      \
-echo    \                                                      /
-echo    /                                                      \
-echo    @======================================================@
+echo    @==================================================================@
+echo    / Hello Makii, Mike15678, or literally anyone else who finds this! \
+echo    \                 Where would you like to go?                      /
+echo    /      1. Waterfalls 2. Sunny Hills 3. Haunted Mansion             \
+echo    \                                                                  /
+echo    /              @================================@                  \
+echo    \              /                                \                  /
+echo    /              \ Waiting for Stage Selection... /                  \
+echo    \              /                                \                  /
+echo    /              \                                /                  \
+echo    \              @================================@                  /
+echo    /                                                                  \
+echo    \                                                                  /
+echo    /                                                                  \
+echo    @==================================================================@
 set /p InputDev=Enter a Number:
 
 if %InputDev% equ 1 goto WaterFallSelect
@@ -92,9 +92,9 @@ echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
 echo    \                                                      /
 echo    /         @================================@           \
 echo    \         /Waterfalls, Ok, Now which "Part"\           /
-echo    /         \Do you want to go to?           /           \
+echo    /         \     Do you want to go to?      /           \
 echo    \         /                                \           /
-echo    /         \       Numbers: 1-20            /           \
+echo    /         \         Numbers: 1-20          /           \
 echo    \         @================================@           /
 echo    /                                                      \
 echo    \                                                      /
@@ -563,18 +563,60 @@ echo ------===========================------
 echo You went to the Right, Now there are 
 echo alot of Pillars and Pits, you need
 echo to jump over the pits and onto the 
-echo pillars.
+echo pillars. What do you do?
 echo.
 echo A) Jump.
 echo B) Charge your laser (Blast jump)
 echo C) Run
 echo ------===========================------
-set /p InputWF8
+set /p InputWF8=Enter:
 
+if %InputWF8% equ A goto WF9
+if %InputWF8% equ a goto WF9
+if %InputWF8% equ B goto GameOver1WF8
+if %InputWF8% equ b goto GameOver1WF8
+if %InputWF8% equ C goto GameOver2WF8
+if %InputWF8% equ c goto GameOver2WF8
+goto WF8LASER2
 
+:GameOver1WF8
+cls
+echo ------===========================------
+echo     Your laser backfired onto you.
+echo       You died instantaneously.
+echo.
+echo.
+echo Continue? (y/n)
+echo              GAME OVER
+echo ------===========================------
+set /p InputGOWF8=Continue?
 
+if %InputWF8% equ Y goto WF8LASER2
+if %InputWF8% equ y goto WF8LASER2
+if %InputWF8% equ N goto startup
+if %InputWF8% equ n goto startup
 
+goto GameOver1WF8
 
+:GameOver2WF8
+cls
+echo ------===========================------
+echo     You ran over the pit... Yeah,
+echo     like that's ever gonna happen.
+echo        You fell and died.
+echo.
+echo.
+echo Continue? (y/n)
+echo                  GAME OVER
+echo ------===========================------
+set /p InputGO2WF8=Continue?
+
+if %InputGO2WF8% equ Y goto WF8LASER2
+if %InputGO2WF8% equ y goto WF8LASER2
+if %InputGO2WF8% equ N goto startup
+if %InputGO2WF8% equ n goto startup
+
+goto GameOver2WF8
 
 
 
