@@ -27,18 +27,19 @@ if %input100% equ Y goto startup
 if %input100% equ y goto startup
 if %input100% equ N exit
 if %input100% equ n exit
-goto notice
+goto Notice
 
 :startup
 cls
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
-echo ------=========Shooter Alpha=========-----------
-echo Welcome to Shooter Text Alpha, Would you like to?
-echo.
-echo Play
-echo Info
-echo Quit :(
-echo ---===========================================---
+echo  	@-----------==========Shooter Alpha=====================@
+echo  	/   Welcome to Shooter Text Alpha, Would you like to?   \ 
+echo  	\                                                       /
+echo  	/                  1. Play   4. Credits                 \
+echo  	\                  2. Info   5. Settings                /
+echo  	/                  3. Quit                              \
+echo  	\                                                       /
+echo  	@-----==================================================@
 echo.
 set /p input0=Enter:
 
@@ -49,9 +50,72 @@ if %input0% equ info goto Info
 if %input0% equ Quit goto exit
 if %input0% equ quit goto exit
 if %Input0% equ SecretScreen goto Secret!
-
+if %Input0% equ DevMode goto DevConsole
+if %input0% equ Credits goto Credits
+if %input0% equ Settings goto Settings
+if %input0% equ credits goto Credits
+if %input0% equ settings goto Settings
 
 goto startup
+
+:DevConsole
+cls
+echo    @======================================================@
+echo    / Hello Makii, or litteraly anyone else who finds this,\
+echo    \ Where would you like togo?                           /
+echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
+echo    \                                                      /
+echo    /         @================================@           \
+echo    \         /                                \           /
+echo    /         \ Waiting for Stage Selection... /           \
+echo    \         /                                \           /
+echo    /         \                                /           \
+echo    \         @================================@           /
+echo    /                                                      \
+echo    \                                                      /
+echo    /                                                      \
+echo    @======================================================@
+set /p InputDev=Enter a Number:
+
+if %InputDev% equ 1 goto WaterFallSelect
+if %InputDev% equ 2 goto SunnyHillSelect
+if %InputDev% equ 3 goto HauntedMansionSelect
+
+goto DevConsole
+
+:WaterFallSelect
+cls
+echo    @======================================================@
+echo    / Hello Makii, or litteraly anyone else who finds this,\
+echo    \ Where would you like togo?                           /
+echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
+echo    \                                                      /
+echo    /         @================================@           \
+echo    \         /Waterfalls, Ok, Now which "Part"\           /
+echo    /         \Do you want to go to?           /           \
+echo    \         /                                \           /
+echo    /         \       Numbers: 1-20            /           \
+echo    \         @================================@           /
+echo    /                                                      \
+echo    \                                                      /
+echo    /                                                      \
+echo    @======================================================@
+set /p InputWFDev=Enter a Number:
+
+if %InputWFDev% equ 1 goto WF1
+if %InputWFDev% equ 2 goto WF2
+if %InputWFDev% equ 3 goto WF3
+if %InputWFDev% equ 4 goto WF4
+if %InputWFDev% equ 5 goto WF5
+if %InputWFDev% equ 6 goto WF6
+if %InputWFDev% equ 7 goto WF7LASER1
+if %InputWFDev% equ 1 goto WF8LASER2
+if %InputWFDev% equ 1 goto WF9LASERFIN
+if %InputWFDev% equ 1 goto WF10
+if %InputWFDev% equ 1 goto WF11
+if %InputWFDev% equ 1 goto WF12
+
+goto WaterFallSelect
 
 :Secret!
 cls
@@ -91,14 +155,15 @@ goto Info
 
 :Play
 cls
-echo You see a Stage Selection in front of you:
-echo there are 3 Stages, Each with a new theme,
-echo a new layout and a new boss! Pick one!
-echo.
-echo Haunted Mansion
-echo Sunny Hills
-echo Waterfalls
-echo.
+echo    @==========================================@
+echo    /You see a Stage Selection in front of you:\
+echo    \there are 3 Stages, Each with a new theme,/
+echo    /a new layout and a new boss! Pick one!    \
+echo    \                                          /
+echo    /Haunted Mansion                           \
+echo    \Sunny Hills                               /
+echo    /Waterfalls                                \
+echo    @==========================================@
 set /p input1=Enter:
 
 if %input1% equ Haunted Mansion goto HM1
@@ -433,11 +498,78 @@ if %InputGO2WF6% equ N goto startup
 if %InputGO2WF6% equ n goto startup
 
 :WF7LASER1
+cls
+echo ------===========================------
+echo You go down the hole, there are lasers
+echo everywhere! You must choose the right
+echo direction to go in order to live!
+echo.
+echo A) Dodge Left
+echo B) Dodge Right
+echo C) Duck Down
+echo ------===========================------
+set /p InputWF7=Enter:
 
+if %InputWF7% equ A goto GameOver1WF7
+if %InputWF7% equ B goto WF8LASER2
+if %InputWF7% equ C goto GameOver2WF7
+if %InputWF7% equ a goto GameOver1WF7
+if %InputWF7% equ b goto WF8LASER2
+if %InputWF7% equ c goto GameOver2WF7
 
+goto WF7LASER1
 
+:GameOver1WF7
+cls
+echo ------===========================------
+echo You attempt to go to the Left,
+echo Turns out it was a dead end.
+echo Before you could get back the door shut.
+echo             GAME OVER!
+echo.
+echo.
+echo Continue? (y/n)
+echo -----============================------
+set /p InputGOWF7=Continue?:
 
+if %InputGOWF7% equ Y goto WF7
+if %InputGOWF7% equ y goto WF7
+if %InputGOWF7% equ N goto startup
+if %InputGOWF7% equ n goto startup
 
+goto GameOver1WF7
+
+:GameOver2WF7
+cls
+echo ------===========================------
+echo You duck, and die by a laser...
+echo           GAME OVER!
+echo.
+echo.
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF7=Continue?:
+              
+if %InputGO2WF7% equ Y goto WF7
+if %InputGO2WF7% equ y goto WF7
+if %InputGO2WF7% equ N goto startup
+if %InputGO2WF7% equ n goto startup
+
+goto GameOver2WF7
+
+:WF8LASER2
+cls
+echo ------===========================------
+echo You went to the Right, Now there are 
+echo alot of Pillars and Pits, you need
+echo to jump over the pits and onto the 
+echo pillars.
+echo.
+echo A) Jump.
+echo B) Charge your laser (Blast jump)
+echo C) Run
+echo ------===========================------
+set /p InputWF8
 
 
 
