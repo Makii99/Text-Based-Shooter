@@ -1,6 +1,6 @@
 @echo off
 TITLE ---=====Shooter Alpha=====---
-
+mode con: cols=75 lines=30
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -15,9 +15,7 @@ TITLE ---=====Shooter Alpha=====---
 :::		 / _ \/ // / / /|_/ / _ `/  '_// / / 
 :::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike
 :::		     /___/                          
-:::
-:::
-:::                         
+:::                        
 
 :Notice
 cls
@@ -48,11 +46,24 @@ if %input0% equ Play goto Play
 if %input0% equ play goto Play
 if %input0% equ Info goto Info
 if %input0% equ info goto Info
-if %input0% equ Quit goto WF6
-if %input0% equ quit goto WF6
+if %input0% equ Quit goto exit
+if %input0% equ quit goto exit
+if %Input0% equ SecretScreen goto Secret!
+
 
 goto startup
 
+:Secret!
+cls
+echo CONRGRATULAGIONS! YOU HAVE FOUND THE SECRET SCREEN!
+echo Post a picture of this at betazone814@gmail.com ;)
+echo For now, Enjoy the excitement of finding a secret
+echo PS: Do not share this with anyone, If you do...
+echo ...I wont do anything about it
+echo PPS: Press any button togo back to the Title Screen
+pause >nul
+
+goto startup
 
 :Info
 cls
@@ -68,6 +79,7 @@ echo 5. Charge your Beam to do massive damage to enemies
 echo 6. If you dont Charge for 2 Moves the Beam will stay charged
 echo 7. Bosses are more difficult then normal enemies, Charge them beams
 echo 8. You only have 1 hp (Hit Point) one hit and your OUT
+echo The code is |1-4-7-2|
 echo Type "Back" to go back to the Title Screen
 echo.
 set /p input1=Enter:
@@ -79,7 +91,6 @@ goto Info
 
 :Play
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo You see a Stage Selection in front of you:
 echo there are 3 Stages, Each with a new theme,
 echo a new layout and a new boss! Pick one!
@@ -105,7 +116,6 @@ goto Play
 
 :WF1
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------=================================------
 echo You arrive at Waterfalls, Do you decide to...
 echo.
@@ -127,7 +137,6 @@ goto WF1
 
 :GameOver1WF1
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------================================------
 echo You walk around the Waterfalls, But you trip
 echo Over a little rock, and into the Waterfalls...
@@ -147,7 +156,6 @@ goto GameOver1WF1
 
 :GameOver2WF1
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===============================------
 echo You jump in the Waterfalls, Little did you know
 echo the water was Poisenious...
@@ -167,7 +175,6 @@ goto GameOver1WF1
 
 :WF2
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------=============================------
 echo You sit on a big rock, Turns out that
 echo big rock was aucually a Button!
@@ -189,7 +196,6 @@ if %InputWF2% equ c goto GameOver2WF2
 
 :GameOver1WF2
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You keep sitting on the rock,
 echo But some Enemies approach You!
@@ -210,7 +216,6 @@ goto GameOver1WF2
 
 :GameOver2WF2
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------================================------
 echo You walk around the Waterfalls, But you trip
 echo Over a little rock, and into the Waterfalls...
@@ -230,7 +235,6 @@ goto GameOver2WF2
 
 :WF3
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You go inside the cave, There are
 echo Enemies waiting for you, One of them
@@ -255,7 +259,6 @@ goto WF3
 
 :GameOver1WF3
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You jump over the Bullet and the Enemie,
 echo However, There is another bullet and
@@ -276,7 +279,6 @@ goto GameOver1WF3
 
 :GameOver2WF3
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You roll into the Enemie, You take a hit
 echo               GAME OVER!
@@ -295,7 +297,6 @@ goto GameOver2WF3
 
 :WF4
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You shoot the enemie, It dies, but
 echo the bullet is still after you...
@@ -315,7 +316,6 @@ goto WF4
 
 :WF5
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You Dodged the bullet, There is a chance
 echo to strike the Enemie... Do you...
@@ -337,7 +337,6 @@ goto WF5
 
 :GameOverWF5
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You charge up your beam, but you get shot
 echo with a Bullet...
@@ -357,10 +356,9 @@ goto GameOverWF5
 
 :GameOver2WF5
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You attempt to shoot the Enemie and kill
-echo it, but before it died it shot a Bullets
+echo it, but before it died it shot a Bullet
 echo and that Bullet kills you...
 echo               GAME OVER!
 echo.
@@ -378,7 +376,6 @@ goto GameOver2WF5
 
 :WF6
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------===========================------
 echo You ignore the Enemie and move on,
 echo you approach a wall of lasers and a hole,
@@ -401,7 +398,7 @@ goto WF6
 
 :GameOver1WF6
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+
 echo ------===========================------
 echo you jump over the hole to look for secrets
 echo ...And then you get blasted by a laser
@@ -418,7 +415,24 @@ if %InputGOWF6% equ n goto startup
 
 goto GameOver1WF6
 
+:GameOver2WF6
+cls
+echo ------===========================------
+echo You camp outside the entrance...
+echo and you get blasted by a laser...
+echo         GAME OVER!
+echo.
+echo.
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF6=Continue?:
 
+if %InputGO2WF6% equ Y goto WF6
+if %InputGO2WF6% equ y goto WF6
+if %InputGO2WF6% equ N goto startup
+if %InputGO2WF6% equ n goto startup
+
+:WF7LASER1
 
 
 
