@@ -591,10 +591,10 @@ echo              GAME OVER
 echo ------===========================------
 set /p InputGOWF8=Continue?
 
-if %InputWF8% equ Y goto WF8LASER2
-if %InputWF8% equ y goto WF8LASER2
-if %InputWF8% equ N goto startup
-if %InputWF8% equ n goto startup
+if %InputGOWF8% equ Y goto WF8LASER2
+if %InputGOWF8% equ y goto WF8LASER2
+if %InputGOWF8% equ N goto startup
+if %InputGOWF8% equ n goto startup
 
 goto GameOver1WF8
 
