@@ -1,5 +1,6 @@
 @echo off
 TITLE ---=====Shooter Alpha=====---
+mode con: cols=75 lines=30
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -12,13 +13,12 @@ TITLE ---=====Shooter Alpha=====---
 :::		   __          __  ___     __    _ _ 
 :::		  / /  __ __  /  |/  /__ _/ /__ (_|_)                                  
 :::		 / _ \/ // / / /|_/ / _ `/  '_// / /                                
-:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike15678                 
-:::		     /___/                           
-:::                        
+:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike                 
+:::		     /___/                                                  
 
 :Notice
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+for /f "delims=: tokens=*" %%A in ('findstr /b :: "%~f0"') do @echo(%%A
 echo This game is licensed under GPLv3. Do you agree with this license?
 set /p input100=y/n:
 
@@ -30,7 +30,8 @@ goto Notice
 
 :startup
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+mode con: cols=75 lines=30
+for /f "delims=: tokens=*" %%A in ('findstr /b :: "%~f0"') do @echo(%%A
 echo  	@====================Shooter Alpha======================@
 echo  	/   Welcome to Text Shooter Alpha, Would you like to?   \ 
 echo  	\                                                       /
@@ -65,7 +66,7 @@ echo ( #    Welcome to Settings, Heres   # )
 echo ( #        What you can do:         # )
 echo ( #    1. Music 2. Under Development# )       
 echo @=====================================@
-set /p InputSettings=Enter:
+ set /p InputSettings=Enter:
  
 if %InputSettings% equ Music goto MusicSettingsOff
 if %InputSettings% equ music goto MusicSettingsOff
@@ -73,35 +74,35 @@ if %InputSettings% equ back goto startup
 if %InputSettings% equ Back goto startup
  
  
-goto Settings
+ goto Settings
  
-:MusicSettingsOff
-cls
-echo @=========Mak-Settings v0.0.3=========@
-echo ( #                                 # )
-echo ( #   Currently, Music is OFF and   # )
-echo ( #   Everytime you come back here  # )
-echo ( #  It will be off, so if you want # )
-echo ( # it on keep it ON and dont come! # )
-echo ( #   also to turn on say ON and    # )
-echo ( #          OFF for off            # )
-echo @=====================================@
-set /p InputMusicSetting=On/Off:
+ :MusicSettingsOff
+ cls
+ echo @=========Mak-Settings v0.0.3=========@
+ echo ( #                                 # )
+ echo ( #   Currently, Music is OFF and   # )
+ echo ( #   Everytime you come back here  # )
+ echo ( #  It will be off, so if you want # )
+ echo ( # it on keep it ON and dont come! # )
+ echo ( #   also to turn on say ON and    # )
+ echo ( #          OFF for off            # )
+ echo @=====================================@
+ set /p InputMusicSetting=On/Off:
  
-taskkill /IM CustomSongForShooter /F
+ taskkill /IM CustomSongForShooter /F
  
-if %InputMusicSetting% equ On goto MusicSettingsOn
-if %InputMusicSetting% equ On goto MusicSettingsOn
-if %InputMusicSetting% equ Off goto Settings
-if %InputMusicSetting% equ Off goto Settings
+ if %InputMusicSetting% equ On goto MusicSettingsOn
+ if %InputMusicSetting% equ On goto MusicSettingsOn
+ if %InputMusicSetting% equ Off goto Settings
+ if %InputMusicSetting% equ Off goto Settings
 
-:MusicSettingsOn
-cls
-echo Music is on, Press any button to go back.
-start CustomSongForShooter.mp3
-pause >nul
+ :MusicSettingsOn
+ cls
+ echo Music is on, Press any button to go back.
+ start CustomSongForShooter.mp3
+ pause >nul
  
-goto Settings
+ goto Settings
  
 :DevPassFailed
 cls
@@ -201,9 +202,17 @@ if %InputWFDev% equ 6 goto WF6
 if %InputWFDev% equ 7 goto WF7LASER1
 if %InputWFDev% equ 8 goto WF8LASER2
 if %InputWFDev% equ 9 goto WF9LASERFIN
-if %InputWFDev% equ 10 goto WF10
+if %InputWFDev% equ 10 goto WF10BOSS
 if %InputWFDev% equ 11 goto WF11
 if %InputWFDev% equ 12 goto WF12
+if %InputWFDev% equ 13 goto WF13
+if %InputWFDev% equ 14 goto WF14
+if %InputWFDev% equ 15 goto WF15
+if %InputWFDev% equ 16 goto WF16
+if %InputWFDev% equ 17 goto WF17
+if %InputWFDev% equ 18 goto WF18
+if %InputWFDev% equ 19 goto WF19
+if %InputWFDev% equ 20 goto WF20
 
 goto WaterFallSelect
 
@@ -221,7 +230,6 @@ goto startup
 
 :Info
 cls
-for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
 echo ------======================================================------
 echo Here is some Info about this game:
 echo.
@@ -245,14 +253,15 @@ goto Info
 
 :Play
 cls
+mode con: cols=50 lines=10
 echo    @==========================================@
 echo    /You see a Stage Selection in front of you:\
 echo    \there are 3 Stages, Each with a new theme,/
 echo    /a new layout and a new boss! Pick one!    \
 echo    \                                          /
-echo    /           Haunted Mansion                \
-echo    \             Sunny Hills                  /
-echo    /              Waterfalls                  \
+echo    /Haunted Mansion                           \
+echo    \Sunny Hills                               /
+echo    /Waterfalls                                \
 echo    @==========================================@
 set /p input1=Enter:
 
@@ -770,10 +779,46 @@ if %InputGO2WF9% equ y goto WF9LASERFIN
 if %InputGO2WF9% equ N goto startup
 if %InputGO2WF9% equ n goto startup
 
+:WF10BOSS
+cls
+echo ------===========================------
+echo You charged a beam and blasted the door
+echo down, Theres a boss waiting for you!
+echo The boss's name is Cryodin,
+echo Cryodin shoots Many crystal shards at you
+echo do you...
+echo.
+echo A) Shoot all the Shards down
+echo B) Move out of the way
+echo C) Charge your beam
+echo ------===========================------
+set /p InputWF10=Enter:
 
+if %InputWF10% equ A goto GameOver1WF10
+if %InputWF10% equ B goto GameOver2WF10
+if %inputWF10% equ C goto WF11
+if %InputWF10% equ a goto GameOver1WF10
+if %InputWF10% equ b goto GameOver2WF10
+if %inputWF10% equ c goto WF11
 
+goto WF10BOSS
 
+:GameOver1WF10
+cls
+Echo ------===========================------
+echo      You shot all the Shards down,
+echo    But one shard hit you, And thus...
+echo.
+echo.
+echo               GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF10=Continue?:
 
+if %InputGOWF10% equ Y goto WF10BOSS
+if %InputGOWF10% equ y goto WF10BOSS
+if %InputGOWF10% equ N goto startup
+if %InputGOWF10% equ n goto startup
 
 
 
