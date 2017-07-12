@@ -1,6 +1,5 @@
 @echo off
 TITLE ---=====Shooter Alpha=====---
-mode con: cols=75 lines=30
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -13,7 +12,7 @@ mode con: cols=75 lines=30
 :::		   __          __  ___     __    _ _ 
 :::		  / /  __ __  /  |/  /__ _/ /__ (_|_)                                  
 :::		 / _ \/ // / / /|_/ / _ `/  '_// / /                                
-:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike                 
+:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike15678                 
 :::		     /___/                           
 :::                        
 
@@ -66,7 +65,7 @@ echo ( #    Welcome to Settings, Heres   # )
 echo ( #        What you can do:         # )
 echo ( #    1. Music 2. Under Development# )       
 echo @=====================================@
- set /p InputSettings=Enter:
+set /p InputSettings=Enter:
  
 if %InputSettings% equ Music goto MusicSettingsOff
 if %InputSettings% equ music goto MusicSettingsOff
@@ -74,35 +73,35 @@ if %InputSettings% equ back goto startup
 if %InputSettings% equ Back goto startup
  
  
- goto Settings
+goto Settings
  
- :MusicSettingsOff
- cls
- echo @=========Mak-Settings v0.0.3=========@
- echo ( #                                 # )
- echo ( #   Currently, Music is OFF and   # )
- echo ( #   Everytime you come back here  # )
- echo ( #  It will be off, so if you want # )
- echo ( # it on keep it ON and dont come! # )
- echo ( #   also to turn on say ON and    # )
- echo ( #          OFF for off            # )
- echo @=====================================@
- set /p InputMusicSetting=On/Off:
+:MusicSettingsOff
+cls
+echo @=========Mak-Settings v0.0.3=========@
+echo ( #                                 # )
+echo ( #   Currently, Music is OFF and   # )
+echo ( #   Everytime you come back here  # )
+echo ( #  It will be off, so if you want # )
+echo ( # it on keep it ON and dont come! # )
+echo ( #   also to turn on say ON and    # )
+echo ( #          OFF for off            # )
+echo @=====================================@
+set /p InputMusicSetting=On/Off:
  
- taskkill /IM CustomSongForShooter /F
+taskkill /IM CustomSongForShooter /F
  
- if %InputMusicSetting% equ On goto MusicSettingsOn
- if %InputMusicSetting% equ On goto MusicSettingsOn
- if %InputMusicSetting% equ Off goto Settings
- if %InputMusicSetting% equ Off goto Settings
+if %InputMusicSetting% equ On goto MusicSettingsOn
+if %InputMusicSetting% equ On goto MusicSettingsOn
+if %InputMusicSetting% equ Off goto Settings
+if %InputMusicSetting% equ Off goto Settings
 
- :MusicSettingsOn
- cls
- echo Music is on, Press any button to go back.
- start CustomSongForShooter.mp3
- pause >nul
+:MusicSettingsOn
+cls
+echo Music is on, Press any button to go back.
+start CustomSongForShooter.mp3
+pause >nul
  
- goto Settings
+goto Settings
  
 :DevPassFailed
 cls
@@ -234,13 +233,13 @@ echo 5. Charge your Beam to do massive damage to enemies
 echo 6. If you dont Charge for 2 Moves the Beam will stay charged
 echo 7. Bosses are more difficult then normal enemies, Charge them beams
 echo 8. You only have 1 hp (Hit Point) one hit and your OUT
-echo The code is |1-4-7-2|
+echo The code is (1-4-7-2)
 echo Type "Back" to go back to the Title Screen
 echo.
-set /p input1=Enter:
+set /p input1000=Enter:
 
-if %input1% equ Back goto startup
-if %input1% equ back goto startup
+if %input1000% equ Back goto startup
+if %input1000% equ back goto startup
 
 goto Info
 
@@ -251,9 +250,9 @@ echo    /You see a Stage Selection in front of you:\
 echo    \there are 3 Stages, Each with a new theme,/
 echo    /a new layout and a new boss! Pick one!    \
 echo    \                                          /
-echo    /Haunted Mansion                           \
-echo    \Sunny Hills                               /
-echo    /Waterfalls                                \
+echo    /           Haunted Mansion                \
+echo    \             Sunny Hills                  /
+echo    /              Waterfalls                  \
 echo    @==========================================@
 set /p input1=Enter:
 
@@ -660,7 +659,7 @@ echo A) Jump.
 echo B) Charge your laser (Blast jump)
 echo C) Run
 echo ------===========================------
-set /p InputWF8
+set /p InputWF8=Enter:
 
 if %InputWF8% equ A goto WF9LASERFIN
 if %InputWF8% equ a goto WF9LASERFIN
