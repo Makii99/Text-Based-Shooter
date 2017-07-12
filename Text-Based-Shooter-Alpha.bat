@@ -820,15 +820,190 @@ if %InputGOWF10% equ y goto WF10BOSS
 if %InputGOWF10% equ N goto startup
 if %InputGOWF10% equ n goto startup
 
+goto GameOver1WF10
 
+:GameOver2WF10
+cls
+echo ------===========================------
+echo     You moved out of the way...
+echo     But Cryodin shot more shards...
+echo     Creating an infinite loop of this
+echo.
+echo.
+echo               GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InpuGO2WF10=Continue?:
 
+if %InputGO2WF10% equ Y goto WF10BOSS
+if %InputGO2WF10% equ y goto WF10BOSS
+if %InputGO2WF10% equ N goto startup
+if %InputGO2WF10% equ n goto startup
 
+goto GameOver2WF10
 
+:WF11
+cls
+echo ------===========================------
+echo    You charged up your beam,
+echo    the Shards draw near, Do you...
+echo.
+echo A) FIRE THE LASER!
+echo B) Jump.
+echo C) Roll.
+echo ------===========================------
+set /p InputWF11=Enter:
 
+if %InputWF11% equ A goto WF12
+if %InputWF11% equ a goto WF12
+if %InputWF11% equ B goto GameOver1WF11
+if %InputWF11% equ b goto GameOver1WF11
+if %InputWF11% equ C goto GameOver2WF11
+if %InputWF11% equ c goto GameOver2WF11
 
+goto WF11
 
+:GameOver1WF11
+cls
+echo ------===========================------
+echo   You jump... Onto the shards
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF11=Continue?:
 
+if %InputGOWF11% equ Y goto WF11
+if %InputGOWF11% equ y goto WF11
+if %InputGOWF11% equ N goto startup
+if %InputGOWF11% equ n goto startup
 
+goto GameOver1WF11
+
+:GameOver2WF11
+cls
+echo ------===========================------
+echo   You roll... Into the shards
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF11=Continue?:
+
+if %InputGO2WF11% equ Y goto WF11
+if %InputGO2WF11% equ y goto WF11
+if %InputGO2WF11% equ N goto startup
+if %InputGO2WF11% equ n goto startup
+
+goto GameOver2WF11
+
+:WF12
+cls
+echo ------===========================------
+echo     You fire your Beam, it breaks
+echo     all the shards and hits Cryodin.
+echo     Now there are "Snowflakes"
+echo     everywhere, Do you...
+echo.
+echo A) stand there hoping you dont get hit
+echo B) Attempt to dodge the Snowflakes
+echo C) Jump and shoot Cryodin
+echo ------===========================------
+set /p InputWF12=Enter:
+
+if %inputWF12% equ A goto GameOver1WF12
+if %inputWF12% equ a goto GameOver1WF12
+if %inputWF12% equ B goto GameOver2WF12
+if %inputWF12% equ b goto GameOver2WF12
+if %inputWF12% equ C goto WF13
+if %inputWF12% equ c goto WF13
+
+goto WF12
+
+:Gameover1WF12
+cls
+echo ------===========================------
+echo   You sat there and dodged all the
+echo    Snowflakes, just kidding...
+echo           you died
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF12=Continue?:
+
+if %InputGOWF12% equ Y goto WF12
+if %InputGOWF12% equ y goto WF12
+if %InputGOWF12% equ N goto startup
+if %InputGOWF12% equ n goto startup
+
+goto GameOver1WF12
+
+:GameOver2WF12
+cls
+echo ------===========================------
+echo    You tried to dodge the snowflakes,
+echo        Seems like you need to jump
+echo        to dodge some snowflakes...
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF12=Continue?:
+
+if %InputGO2WF12% equ Y goto WF12
+if %InputGO2WF12% equ y goto WF12
+if %InputGO2WF12% equ N goto startup
+if %InputGO2WF12% equ n goto startup
+
+goto GameOver2WF12
+
+:WF13
+cls
+echo ------===========================------
+echo      You jumped and shot Cryodin...
+echo      Somehow you lived... However
+echo      Now there are 2 Cryodins
+echo      Firing shards directly at you.
+echo      Do you...
+echo.
+echo A) Charge your Beam.
+echo B) Shoot the Left Cryodin
+echo C) Shoot the Right Cryodin
+echo ------===========================------
+set /p InputWF13=Enter:
+
+if %inputWF13% equ A goto GameOver1WF13
+if %inputWF13% equ a goto GameOver1WF13
+if %inputWF13% equ B goto GameOver2WF13
+if %inputWF13% equ b goto GameOver2WF13
+if %inputWF13% equ C goto WF14
+if %inputWF13% equ c goto WF14
+
+goto WF13
+
+:GameOver1WF13
+cls
+echo ------===========================------
+echo     You Charge your beam...
+echo     Then the shards kill you.
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF13
+
+if %inputGOWF13% equ Y goto WF13
+if %inputGOWF13% equ y goto WF13
+if %inputGOWF13% equ N goto startup
+if %inputGOWF13% equ n goto startup
+
+goto GameOver1WF13
 
 
 
