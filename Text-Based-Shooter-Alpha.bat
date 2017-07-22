@@ -1,6 +1,5 @@
 @echo off
 TITLE ---=====Shooter Alpha=====---
-mode con: cols=75 lines=30
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -13,7 +12,7 @@ mode con: cols=75 lines=30
 :::		   __          __  ___     __    _ _ 
 :::		  / /  __ __  /  |/  /__ _/ /__ (_|_)                                  
 :::		 / _ \/ // / / /|_/ / _ `/  '_// / /                                
-:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike                 
+:::		/_.__/\_, / /_/  /_/\_,_/_/\_\/_/_/  And Mike15678                 
 :::		     /___/                                                  
 
 :Notice
@@ -62,7 +61,7 @@ goto startup
 cls
 echo @=========Mak-Settings v0.0.3=========@
 echo ( #                                 # )
-echo ( #    Welcome to Settings, Heres   # )
+echo ( #    Welcome to Settings, Here's   # )
 echo ( #        What you can do:         # )
 echo ( #    1. Music 2. Under Development# )       
 echo @=====================================@
@@ -152,8 +151,8 @@ goto DevConsoleCode
 :DevConsole
 cls
 echo    @======================================================@
-echo    / Hello Makii, or litteraly anyone else who finds this,\
-echo    \ Where would you like togo?                           /
+echo    / Hello Makii, or literally anyone else who finds this,\
+echo    \ Where would you like to go?                           /
 echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
 echo    \                                                      /
 echo    /         @================================@           \
@@ -222,7 +221,7 @@ echo CONRGRATULAGIONS! YOU HAVE FOUND THE SECRET SCREEN!
 echo Post a picture of this at betazone814@gmail.com ;)
 echo For now, Enjoy the excitement of finding a secret
 echo PS: Do not share this with anyone, If you do...
-echo ...I wont do anything about it
+echo ...I won't do anything about it
 echo PPS: Press any button togo back to the Title Screen
 pause >nul
 
@@ -323,7 +322,7 @@ goto GameOver1WF1
 cls
 echo ------===============================------
 echo You jump in the Waterfalls, Little did you know
-echo the water was Poisenious...
+echo the water was poisonous...
 echo               GAME OVER!
 echo.
 echo.
@@ -342,9 +341,9 @@ goto GameOver1WF1
 cls
 echo ------=============================------
 echo You sit on a big rock, Turns out that
-echo big rock was aucually a Button!
+echo big rock was actually a Button!
 echo The Waterfalls open up a pathway...
-echo do you...
+echo Do you...
 echo.
 echo A) Go inside
 echo B) Sit on the rock some more
@@ -363,7 +362,7 @@ if %InputWF2% equ c goto GameOver2WF2
 cls
 echo ------===========================------
 echo You keep sitting on the rock,
-echo But some Enemies approach You!
+echo But some Enemies approach you!
 echo There are too many enemies for you.
 echo             GAME OVER!
 echo.
@@ -406,8 +405,8 @@ echo Enemies waiting for you, One of them
 echo Shoots a Bullet at you, and another one
 echo Runs at you... Do you...
 echo.
-echo A) Jump over the Enemie and the Bullet
-echo B) Roll under the Bullet and the Enemie
+echo A) Jump over the Enemy and the Bullet
+echo B) Roll under the Bullet and the Enemy
 echo C) Shoot a bullet
 echo ------===========================------
 echo.
@@ -445,7 +444,7 @@ goto GameOver1WF3
 :GameOver2WF3
 cls
 echo ------===========================------
-echo You roll into the Enemy, You take a hit
+echo You roll into the Enemy, You get hit.
 echo               GAME OVER!
 echo.
 echo.
@@ -465,7 +464,7 @@ cls
 echo ------===========================------
 echo You shoot the enemy, It dies, but
 echo the bullet is still after you...
-echo do you...
+echo Do you...
 echo.
 echo A) Roll under it
 echo B) Jump over it
@@ -485,8 +484,8 @@ echo ------===========================------
 echo You Dodged the bullet, There is a chance
 echo to strike the Enemy... Do you...
 echo.
-echo A) Jump over the enemie and move on
-echo B) Shoot the enemie and move on
+echo A) Jump over the enemy and move on
+echo B) Shoot the enemy and move on
 echo C) Charge your beam
 echo ------===========================------
 set /p InputWF5=Enter:
@@ -523,7 +522,7 @@ goto GameOverWF5
 cls
 echo ------===========================------
 echo You attempt to shoot the Enemy and kill
-echo it, but before it died it shot a Bullet
+echo it, but before it died, it shot a Bullet
 echo and that Bullet kills you...
 echo               GAME OVER!
 echo.
@@ -565,7 +564,7 @@ goto WF6
 cls
 
 echo ------===========================------
-echo you jump over the hole to look for secrets
+echo You jump over the hole to look for secrets
 echo ...And then you get blasted by a laser
 echo              GAME OVER!
 echo.
@@ -684,11 +683,11 @@ goto WF8LASER2
 cls
 echo ------===========================------
 echo     Your laser backfired onto you.
-echo       You died instantaneously.
+echo       You die instantaneously.
+echo              GAME OVER
 echo.
 echo.
 echo Continue? (y/n)
-echo              GAME OVER
 echo ------===========================------
 set /p InputGOWF8=Continue?
 
@@ -705,10 +704,10 @@ echo ------===========================------
 echo     You ran over the pits... Yeah,
 echo     like that's ever gonna happen.
 echo        You fell and died.
+echo             GAME OVER
 echo.
 echo.
 echo Continue? (y/n)
-echo                  GAME OVER
 echo ------===========================------
 set /p InputGO2WF8=Continue?
 
@@ -724,8 +723,8 @@ cls
 echo ------===========================------
 echo  You jump over the pits, like any
 echo  regular human being... but now
-echo  there is a door with a lock on it
-echo  do you...
+echo  there is a door with a lock on it.
+echo  Do you...
 echo.
 echo A) Try to break it with a Charged Beam
 echo B) Attempt to Picklock it
@@ -745,7 +744,7 @@ goto WF9LASERFIN
 :GameOver1WF9
 cls
 echo ------===========================------
-echo         You picklocked the lock
+echo         You picklock on the lock
 echo       without a picklock on hand...
 echo       As if, you gave up and starved.
 echo.
@@ -765,8 +764,8 @@ goto GameOver1WF9
 :GameOver2WF9
 cls
 echo ------==============================------
-echo You stared into the Lock with a mighty rage
-echo      The lock opened... In your dreams
+echo You stared into the Lock with a mighty rage.
+echo      The lock opened... (HAHAHA)In your dreams
 echo         You gave up and starved.
 echo.
 echo.
@@ -784,10 +783,10 @@ if %InputGO2WF9% equ n goto startup
 cls
 echo ------===========================------
 echo You charged a beam and blasted the door
-echo down, Theres a boss waiting for you!
+echo down, There's a boss waiting for you!
 echo The boss's name is Cryodin,
 echo Cryodin shoots Many crystal shards at you
-echo do you...
+echo Do you...
 echo.
 echo A) Shoot all the Shards down
 echo B) Move out of the way
@@ -809,9 +808,9 @@ cls
 Echo ------===========================------
 echo      You shot all the Shards down,
 echo    But one shard hit you, And thus...
-echo.
-echo.
 echo               GAME OVER!
+echo.
+echo.               
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF10=Continue?:
@@ -829,9 +828,9 @@ echo ------===========================------
 echo     You moved out of the way...
 echo     But Cryodin shot more shards...
 echo     Creating an infinite loop of this
-echo.
-echo.
 echo               GAME OVER!
+echo.
+echo.
 echo Continue? (y/n)
 echo ------===========================------
 set /p InpuGO2WF10=Continue?:
@@ -868,9 +867,9 @@ goto WF11
 cls
 echo ------===========================------
 echo   You jump... Onto the shards
-echo.
-echo.
 echo             GAME OVER!
+echo.
+echo.
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF11=Continue?:
@@ -886,9 +885,9 @@ goto GameOver1WF11
 cls
 echo ------===========================------
 echo   You roll... Into the shards
+echo            GAME OVER!
 echo.
-echo.
-echo             GAME OVER!
+echo.         
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF11=Continue?:
@@ -908,7 +907,7 @@ echo     all the shards and hits Cryodin.
 echo     Now there are "Snowflakes"
 echo     everywhere, Do you...
 echo.
-echo A) stand there hoping you dont get hit
+echo A) Stand there hoping you dont get hit
 echo B) Attempt to dodge the Snowflakes
 echo C) Jump and shoot Cryodin
 echo ------===========================------
@@ -927,11 +926,12 @@ goto WF12
 cls
 echo ------===========================------
 echo   You sat there and dodged all the
-echo    Snowflakes, just kidding...
-echo           you died
+echo    "Snowflakes"- just kidding...
+echo           You Died
+echo.         
+echo           GAME OVER!
 echo.
 echo.
-echo             GAME OVER!
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF12=Continue?:
@@ -949,9 +949,9 @@ echo ------===========================------
 echo    You tried to dodge the snowflakes,
 echo        Seems like you need to jump
 echo        to dodge some snowflakes...
+echo                GAME OVER!
 echo.
 echo.
-echo             GAME OVER!
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF12=Continue?:
@@ -1089,7 +1089,7 @@ goto GameOver2WF14
 cls
 echo ------===========================------
 echo   You jump on Cryodin, It took a hit
-echo     Just one more togo! it is now
+echo     Just one more to go! it is now
 echo       Firing Shards at you.
 echo            Do you...
 echo.
