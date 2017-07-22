@@ -29,7 +29,6 @@ goto Notice
 
 :startup
 cls
-mode con: cols=75 lines=30
 for /f "delims=: tokens=*" %%A in ('findstr /b :: "%~f0"') do @echo(%%A
 echo  	@====================Shooter Alpha======================@
 echo  	/   Welcome to Text Shooter Alpha, Would you like to?   \ 
