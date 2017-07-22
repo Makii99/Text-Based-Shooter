@@ -89,7 +89,7 @@ if %InputSettings% equ Back goto startup
  echo @=====================================@
  set /p InputMusicSetting=On/Off:
  
- taskkill /IM CustomSongForShooter /F
+ taskkill /IM CustomSongForShooter.mp3 /F
  
  if %InputMusicSetting% equ On goto MusicSettingsOn
  if %InputMusicSetting% equ On goto MusicSettingsOn
@@ -212,7 +212,7 @@ if %InputWFDev% equ 16 goto WF16
 if %InputWFDev% equ 17 goto WF17
 if %InputWFDev% equ 18 goto WF18
 if %InputWFDev% equ 19 goto WF19
-if %InputWFDev% equ 20 goto WF20
+if %InputWFDev% equ 20 goto WFENDING
 
 goto WaterFallSelect
 
@@ -265,6 +265,7 @@ echo    /Waterfalls                                \
 echo    @==========================================@
 set /p input1=Enter:
 
+if 
 if %input1% equ Haunted Mansion goto HM1
 if %input1% equ haunted mansion goto HM1
 if %input1% equ Haunted mansion goto HM1
@@ -424,9 +425,9 @@ goto WF3
 :GameOver1WF3
 cls
 echo ------===========================------
-echo You jump over the Bullet and the Enemie,
+echo You jump over the Bullet and the Enemy,
 echo However, There is another bullet and
-echo the Enemie is charging back at you...
+echo the Enemy is charging back at you...
 echo              GAME OVER!
 echo.
 echo.
@@ -444,7 +445,7 @@ goto GameOver1WF3
 :GameOver2WF3
 cls
 echo ------===========================------
-echo You roll into the Enemie, You take a hit
+echo You roll into the Enemy, You take a hit
 echo               GAME OVER!
 echo.
 echo.
@@ -462,7 +463,7 @@ goto GameOver2WF3
 :WF4
 cls
 echo ------===========================------
-echo You shoot the enemie, It dies, but
+echo You shoot the enemy, It dies, but
 echo the bullet is still after you...
 echo do you...
 echo.
@@ -482,7 +483,7 @@ goto WF4
 cls
 echo ------===========================------
 echo You Dodged the bullet, There is a chance
-echo to strike the Enemie... Do you...
+echo to strike the Enemy... Do you...
 echo.
 echo A) Jump over the enemie and move on
 echo B) Shoot the enemie and move on
@@ -521,7 +522,7 @@ goto GameOverWF5
 :GameOver2WF5
 cls
 echo ------===========================------
-echo You attempt to shoot the Enemie and kill
+echo You attempt to shoot the Enemy and kill
 echo it, but before it died it shot a Bullet
 echo and that Bullet kills you...
 echo               GAME OVER!
@@ -541,7 +542,7 @@ goto GameOver2WF5
 :WF6
 cls
 echo ------===========================------
-echo You ignore the Enemie and move on,
+echo You ignore the Enemy and move on,
 echo you approach a wall of lasers and a hole,
 echo do you...
 echo.
@@ -967,7 +968,7 @@ cls
 echo ------===========================------
 echo      You jumped and shot Cryodin...
 echo      Somehow you lived... However
-echo      Now there are 2 Cryodins
+echo         there are 2 Cryodins
 echo      Firing shards directly at you.
 echo      Do you...
 echo.
@@ -1005,21 +1006,97 @@ if %inputGOWF13% equ n goto startup
 
 goto GameOver1WF13
 
+:GameOver2WF13
+cls
+echo ------===========================------
+echo      You shot the left Cryodin.
+echo It was the wrong one, the shards kill you
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF13=Continue?:
 
+if %InputGO2WF13% equ Y goto WF13
+if %InputGO2WF13% equ y goto WF13
+if %InputGO2WF13% equ N goto startup
+if %InputGO2WF13% equ n goto startup
 
+goto GameOver2WF13
 
+:WF14
+cls
+echo ------===========================------
+echo      You shot the Right Cryodin.
+echo It was the Right one, the shards vanish,
+echo  You have a chance to attack, Do you...
+echo.
+echo A) Charge your Beam
+echo B) Jump on Cryodin
+echo C) Wait and see what happens
+echo ------===========================------
+set /p InputWF14=Enter:
 
+if %InputWF14% equ A goto GameOver1WF14
+if %InputWF14% equ a goto GameOver1WF14
+if %InputWF14% equ B goto WF15
+if %InputWF14% equ b goto WF15
+if %InputWF14% equ C goto GameOver2WF14
+if %InputWF14% equ c goto GameOver2WF14
 
+goto WF14
 
+:GameOver1WF14
+cls
+echo ------===========================------
+echo        You charge your beam...
+echo        It backfired Instantly
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF14=Continue?:
 
+if %InputGOWF14% equ Y goto WF14
+if %InputGOWF14% equ y goto WF14
+if %InputGOWF14% equ n goto startup
+if %InputGOWF14% equ N goto startup
 
+goto GameOver1WF14
 
+:GameOver2WF14
+cls
+echo ------===========================------
+echo       You waited and Cryodin Died,
+echo    ...As if, you got killed instantly
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF14=Continue?:
 
+if %InputGO2WF14% equ Y goto WF14
+if %InputGO2WF14% equ y goto WF14
+if %InputGO2WF14% equ n goto startup
+if %InputGO2WF14% equ N goto startup
 
+goto GameOver2WF14
 
-
-
-
+:WF15
+cls
+echo ------===========================------
+echo   You jump on Cryodin, It took a hit
+echo     Just one more togo! it is now
+echo       Firing Shards at you.
+echo            Do you...
+echo.
+echo A) Shoot the Shards
+echo B) Charge your Beam
+echo C) Jump.
+echo ------===========================------
 
 
 
