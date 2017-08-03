@@ -1,0 +1,20 @@
+::Game Over Screen Template by Mike15678.
+::Lines that contain "[]" are placeholders. Please remove the "[]" from the lines after you have finished or else the command won't execute.
+:GameOver[]
+cls
+echo ------===========================------
+echo        []
+echo        []
+echo.       []
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO[]=Continue?:
+
+if %InputGO[]% equ Y goto []
+if %InputGO[]% equ y goto []
+if %InputGO[]% equ n goto startup
+if %InputGO[]% equ N goto startup
+
+goto GameOver[]
