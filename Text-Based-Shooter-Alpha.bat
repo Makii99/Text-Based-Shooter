@@ -263,7 +263,6 @@ echo    /Waterfalls                                \
 echo    @==========================================@
 set /p input1=Enter:
 
-if 
 if %input1% equ Haunted Mansion goto HM1
 if %input1% equ haunted mansion goto HM1
 if %input1% equ Haunted mansion goto HM1
