@@ -1,5 +1,6 @@
-::Game Over Screen Template by Mike15678.
-::Lines that contain "[]" are placeholders. Please remove the "[]" from the lines after you have finished or else the command won't execute.
+rem Game Over Screen Template by Mike15678.
+rem Lines that contain "[]" are placeholders. Please remove the "[]" from the lines after you have finished or else the command won't execute. Feel free to delete the lines that contain "rem" (this line and the one before), as they are only comments.
+
 :GameOver[]
 cls
 echo ------===========================------
