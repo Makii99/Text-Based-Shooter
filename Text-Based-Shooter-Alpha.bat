@@ -996,7 +996,7 @@ echo.
 echo             GAME OVER!
 echo Continue? (y/n)
 echo ------===========================------
-set /p InputGOWF13
+set /p InputGOWF13=Continue?
 
 if %inputGOWF13% equ Y goto WF13
 if %inputGOWF13% equ y goto WF13
