@@ -1,6 +1,6 @@
 @echo off
-TITLE ---=====Shooter Alpha=====---
-mode con: cols=75 lines=30
+TITLE ---=====Shooter Beta=====---
+mode con: cols=80 lines=35
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -32,8 +32,8 @@ goto Notice
 cls
 mode con: cols=75 lines=30
 for /f "delims=: tokens=*" %%A in ('findstr /b :: "%~f0"') do @echo(%%A
-echo  	@====================Shooter Alpha======================@
-echo  	/   Welcome to Text Shooter Alpha, Would you like to?   \ 
+echo  	@====================Shooter Beta=======================@
+echo  	/   Welcome to Text Shooter Beta, Would you like to?    \ 
 echo  	\                                                       /
 echo  	/                  1. Play   4. Credits                 \
 echo  	\                  2. Info   5. Settings                /
@@ -43,6 +43,9 @@ echo  	@=======================================================@
 echo.
 set /p input0=Enter:
 
+set WFClear=0
+set HMClear=0
+set SHClear=0
 if %input0% equ Play goto Play
 if %input0% equ play goto Play
 if %input0% equ Info goto Info
@@ -219,11 +222,12 @@ goto WaterFallSelect
 :Secret!
 cls
 echo CONRGRATULAGIONS! YOU HAVE FOUND THE SECRET SCREEN!
-echo Post a picture of this at lukeah115@gmail.com ;)
+echo.
 echo For now, Enjoy the excitement of finding a secret
 echo PS: Do not share this with anyone, If you do...
 echo ...I won't do anything about it
 echo PPS: Press any button togo back to the Title Screen
+echo                                          Secret 1/2
 pause >nul
 
 goto startup
@@ -237,10 +241,8 @@ echo 1. When Enemies Get Close You Want To Shoot Them ;)
 echo 2. When Enemies Get Too Close You Want To Jump And Not Take Damage
 echo 3. Jump over pits.
 echo 4. Roll/Jump Over/Under Bullets That Enemies Shoot
-echo 5. Charge your Beam to do massive damage to enemies
-echo 6. If you dont Charge for 2 Moves the Beam will stay charged
-echo 7. Bosses are more difficult then normal enemies, Charge them beams
-echo 8. You only have 1 hp (Hit Point) one hit and your OUT
+echo 5. Bosses are the main focus of an stage, Those are your targets.
+echo 6. You only have 1 hp (Hit Point) one hit and your OUT
 echo The code is (1-4-7-2)
 echo Type "Back" to go back to the Title Screen
 echo.
@@ -264,7 +266,12 @@ echo    \Sunny Hills                               /
 echo    /Waterfalls                                \
 echo    @==========================================@
 set /p input1=Enter:
- 
+
+if %WFClear% equ 1 (
+if %HMClear% equ 1 (
+if %SHClear% equ 1 goto THE END
+)
+)
 if %input1% equ Haunted Mansion goto HM1
 if %input1% equ haunted mansion goto HM1
 if %input1% equ Haunted mansion goto HM1
@@ -335,7 +342,7 @@ if %inputGO2WF1% equ Y goto WF1
 if %inputGO2WF1% equ n goto startup
 if %inputGO2WF1% equ N goto startup
 
-goto GameOver1WF1
+goto GameOver2WF1
 
 :WF2
 cls
@@ -631,8 +638,8 @@ echo Continue? (y/n)
 echo -----============================------
 set /p InputGOWF7=Continue?:
 
-if %InputGOWF7% equ Y goto WF7
-if %InputGOWF7% equ y goto WF7
+if %InputGOWF7% equ Y goto WF7LASER1
+if %InputGOWF7% equ y goto WF7LASER1
 if %InputGOWF7% equ N goto startup
 if %InputGOWF7% equ n goto startup
 
@@ -649,8 +656,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF7=Continue?:
               
-if %InputGO2WF7% equ Y goto WF7
-if %InputGO2WF7% equ y goto WF7
+if %InputGO2WF7% equ Y goto WF7LASER1
+if %InputGO2WF7% equ y goto WF7LASER1
 if %InputGO2WF7% equ N goto startup
 if %InputGO2WF7% equ n goto startup
 
@@ -1185,6 +1192,173 @@ if %InputGOWF16% equ N goto startup
 if %InputGOWF16% equ n goto startup
 
 goto GameOver1WF16
+
+:GameOver2WF16
+cls
+echo ------===========================------
+echo     You shot, Cryodin shot back, 
+echo      Guess you know the drill.
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p inputGO2WF16=Continue?:
+
+if %InputGO2WF16% equ Y goto WF16
+if %InputGO2WF16% equ y goto WF16
+if %InputGO2WF16% equ N goto startup
+if %InputGO2WF16% equ n goto startup
+
+goto GameOver2WF16
+
+:WF17
+cls
+echo ------===========================------
+echo     Beam Charged, For once.
+echo   Now all thats left is to fire!
+echo.
+echo A) Fire!
+echo B) ...
+echo ------===========================------
+set /p InputWF17=Enter:
+
+if %InputWF17% equ a goto WF18
+if %InputWF17% equ A goto WF18
+if %InputWF17% equ b goto GameOver1WF17
+if %InputWF17% equ B goto GameOver1WF17
+
+goto WF17
+
+:GameOver1WF17
+cls
+echo ------===========================------
+echo     What are you waiting around for?
+echo     You left yourself open to attack.
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF17=Continue?:
+
+if %InputGOWF17% equ ... goto SecretWF17
+if %InputGOWF17% equ Y goto WF17
+if %InputGOWF17% equ y goto WF17
+if %InputGOWF17% equ N goto startup
+if %InputGOWF17% equ n goto startup
+
+goto GameOver1WF17
+
+:SecretWF17
+cls
+echo ------===========================------
+echo  What's Going On? There shouldn't be
+echo  anything here... Hmm. I guess for
+echo  now just continue with whatever
+echo         you were doing.
+echo.
+echo Press any button to continue.
+echo                              Secret 2/2
+echo ------===========================------
+pause >nul
+
+goto WF17
+
+:WF18
+cls
+echo ------===========================------
+echo You fired. And Cryodin has been defeated
+echo    All thats left now is to Escape.
+echo.
+echo A) Go to the door that says "Exit"
+echo B) Go back to where you came from
+echo C) Sit there
+echo ------===========================------
+set /p InputWF18=Enter:
+
+if %InputWF18% equ A goto WF19
+if %InputWF18% equ a goto WF19
+if %InputWF18% equ B goto GameOver1WF18
+if %InputWF18% equ b goto GameOver1WF18
+if %InputWF18% equ C goto GameOver2WF18
+if %InputWF18% equ c goto GameOver2WF18
+
+goto WF18
+
+:GameOver1WF18
+cls
+echo ------===========================------
+echo    You went back to where you came
+echo     from. However. It was a trap!
+echo    Welp. Guess you know what's next
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOWF18=Continue?:
+
+if %InputGOWF18% equ Y goto WF18
+if %InputGOWF18% equ y goto WF18
+if %InputGOWF18% equ N goto startup
+if %InputGOWF18% equ n goto startup
+
+goto GameOver1WF18
+
+:GameOver2WF18
+cls
+echo ------===========================------
+echo  You sit there and teleported back to
+echo     where you stared. Oh wait.
+echo            Wrong universe
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2WF18=Continue?:
+
+if %InputGO2WF18% equ Y goto WF18
+if %InputGO2WF18% equ y goto WF18
+if %InputGO2WF18% equ N goto WF18
+if %InputGO2WF18% equ n goto WF18
+
+goto GameOver2WF18
+
+:WF19
+cls
+echo ------===========================------
+echo   You went out the exit. Suprisingly
+echo      it wasent a trap. now just
+echo          skit on outta here
+echo.
+echo A) Skit on outta here.
+echo ------===========================------
+set /p InputWF19=Enter:
+
+if %InputWF19% equ A goto WFENDING
+if %InputWF19% equ a goto WFENDING
+
+:WFENDING
+cls
+echo @=====================================@
+echo \   You have successfully defeated    /
+echo /   the stage "Waterfalls", you can   \
+echo \   replay it if you want to.         /
+echo /                                     \
+echo \                                     /
+echo / Press any button to continue...     \
+echo @=====================================@
+pause >nul
+
+set WFClear=1
+
+goto Play
+
+
+
+
 
 
 
