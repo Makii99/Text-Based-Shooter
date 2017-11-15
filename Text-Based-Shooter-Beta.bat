@@ -49,7 +49,7 @@ if /I "%input0%"=="play" goto Play
 if /I "%input0%"=="info" goto Info
 if /I "%input0%"=="quit" goto exit
 if /I "%input0%"=="SecretScreen" goto Secret
-if /I "%Input0%"=="DevMode" goto DevConsoleCode
+if /I "%Input0%"=="DevMode" goto DevConsole
 if /I "%input0%"=="credits" goto Credits
 if /I "%input0%"=="settings" goto Settings
 
@@ -82,7 +82,7 @@ echo ( #   also to turn on say ON and    # )
 echo ( #          OFF for off            # )
 echo @=====================================@
 set /p InputMusicSetting="On/Off:"
-rem This won't work for most people, unless they have a file specifically named as such. v
+
 taskkill /IM CustomSongForShooter.mp3 /F
  
 if /I "%InputMusicSetting%"=="on" goto MusicSettingsOn
@@ -97,56 +97,11 @@ start CustomSongForShooter.mp3
 pause >nul
  
 goto Settings
- 
-:DevPassFailed
-cls
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo     @=========Mak-Security v0.1.5=========@
-echo     ( !!                               !! )
-echo     ( !! You have Guessed incorrectly! !! )
-echo     ( !!  You must now go back and try !! )
-echo     ( !!   try, try, try, try, try     !! )    
-echo     ( !!  Again, but ofc if you tried  !! )                   
-echo     ( !!   7 Times, you might want to  !! )
-echo     ( !!   try some more, Not hurting  !! )
-echo     ( !!   anyone right? i don't care  !! )
-echo     ( !!   also press any key to exit  !! )
-echo     @=====================================@
-pause >nul
-
-exit
-
-:DevConsoleCode
-cls
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo     @=========Mak-Security v0.1.6=========@
-echo     ( !                                 ! )  
-echo     ( !  You are trying to enter into   ! )
-echo     ( !   Dev Mode, You must pass a     ! )
-echo     ( !      Password, What is it?      ! )
-echo     ( !                                 ! )
-echo     @=====================================@
-set /p InputDevPass="Password:"
-
-if "%InputDevPass%"=="Big-Maks" goto DevConsole
-if not "%InputDevPass%"=="Big-Maks" goto DevPassFailed
-
-goto DevConsoleCode
 
 :DevConsole
 cls
 echo    @======================================================@
-echo    / Hello Makii, or literally anyone else who finds this,\
+echo    / Hello literally anyone  who finds this,              \
 echo    \ Where would you like to go?                          /
 echo    / (Please be aware that if there are bugs in the game, \
 echo    \  you won't be able to debug them by using this)      /
@@ -710,10 +665,8 @@ echo Continue? (y/n)
 echo ------==============================------
 set /p InputGO2WF9
 
-if %InputGO2WF9% equ Y goto WF9LASERFIN
-if %InputGO2WF9% equ y goto WF9LASERFIN
-if %InputGO2WF9% equ N goto startup
-if %InputGO2WF9% equ n goto startup
+if /I "%InputGO2WF9%"=="y" goto WF9LASERFIN
+if /I "%InputGO2WF9%"=="n" goto startup
 
 :WF10BOSS
 cls
@@ -730,12 +683,9 @@ echo C) Charge your beam
 echo ------===========================------
 set /p InputWF10=Enter:
 
-if %InputWF10% equ A goto GameOver1WF10
-if %InputWF10% equ B goto GameOver2WF10
-if %inputWF10% equ C goto WF11
-if %InputWF10% equ a goto GameOver1WF10
-if %InputWF10% equ b goto GameOver2WF10
-if %inputWF10% equ c goto WF11
+if /I "%InputWF10%"=="a" goto GameOver1WF10
+if /I "%InputWF10%"=="b" goto GameOver2WF10
+if /I "%inputWF10%"=="c" goto WF11
 
 goto WF10BOSS
 
@@ -751,10 +701,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF10=Continue?:
 
-if %InputGOWF10% equ Y goto WF10BOSS
-if %InputGOWF10% equ y goto WF10BOSS
-if %InputGOWF10% equ N goto startup
-if %InputGOWF10% equ n goto startup
+if /I "%InputGOWF10%"=="y" goto WF10BOSS
+if /I "%InputGOWF10%"=="n" goto startup
 
 goto GameOver1WF10
 
@@ -771,10 +719,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InpuGO2WF10=Continue?:
 
-if %InputGO2WF10% equ Y goto WF10BOSS
-if %InputGO2WF10% equ y goto WF10BOSS
-if %InputGO2WF10% equ N goto startup
-if %InputGO2WF10% equ n goto startup
+if /I "%InputGO2WF10%"=="y" goto WF10BOSS
+if /I "%InputGO2WF10%"=="n" goto startup
 
 goto GameOver2WF10
 
@@ -790,12 +736,9 @@ echo C) Roll.
 echo ------===========================------
 set /p InputWF11=Enter:
 
-if %InputWF11% equ A goto WF12
-if %InputWF11% equ a goto WF12
-if %InputWF11% equ B goto GameOver1WF11
-if %InputWF11% equ b goto GameOver1WF11
-if %InputWF11% equ C goto GameOver2WF11
-if %InputWF11% equ c goto GameOver2WF11
+if /I "%InputWF11%"=="a" goto WF12
+if /I "%InputWF11%"=="b" goto GameOver1WF11
+if /I "%InputWF11%"=="c" goto GameOver2WF11
 
 goto WF11
 
@@ -810,10 +753,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF11=Continue?:
 
-if %InputGOWF11% equ Y goto WF11
-if %InputGOWF11% equ y goto WF11
-if %InputGOWF11% equ N goto startup
-if %InputGOWF11% equ n goto startup
+if /I "%InputGOWF11%"=="y" goto WF11
+if /I "%InputGOWF11%"=="n" goto startup
 
 goto GameOver1WF11
 
@@ -828,10 +769,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF11=Continue?:
 
-if %InputGO2WF11% equ Y goto WF11
-if %InputGO2WF11% equ y goto WF11
-if %InputGO2WF11% equ N goto startup
-if %InputGO2WF11% equ n goto startup
+if /I "%InputGO2WF11%"=="y" goto WF11
+if /I "%InputGO2WF11%"=="n" goto startup
 
 goto GameOver2WF11
 
@@ -849,12 +788,9 @@ echo C) Jump and shoot Cryodin
 echo ------===========================------
 set /p InputWF12=Enter:
 
-if %inputWF12% equ A goto GameOver1WF12
-if %inputWF12% equ a goto GameOver1WF12
-if %inputWF12% equ B goto GameOver2WF12
-if %inputWF12% equ b goto GameOver2WF12
-if %inputWF12% equ C goto WF13
-if %inputWF12% equ c goto WF13
+if /I "%inputWF12%"=="a" goto GameOver1WF12
+if /I "%inputWF12%"=="b" goto GameOver2WF12
+if /I "%inputWF12%"=="c" goto WF13
 
 goto WF12
 
@@ -871,10 +807,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF12=Continue?:
 
-if %InputGOWF12% equ Y goto WF12
-if %InputGOWF12% equ y goto WF12
-if %InputGOWF12% equ N goto startup
-if %InputGOWF12% equ n goto startup
+if /I "%InputGOWF12%"=="y" goto WF12
+if /I "%InputGOWF12%"=="n" goto startup
 
 goto GameOver1WF12
 
@@ -891,10 +825,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF12=Continue?:
 
-if %InputGO2WF12% equ Y goto WF12
-if %InputGO2WF12% equ y goto WF12
-if %InputGO2WF12% equ N goto startup
-if %InputGO2WF12% equ n goto startup
+if /I "%InputGO2WF12%"=="y" goto WF12
+if /I "%InputGO2WF12%"=="n" goto startup
 
 goto GameOver2WF12
 
@@ -913,12 +845,9 @@ echo C) Shoot the Right Cryodin
 echo ------===========================------
 set /p InputWF13=Enter:
 
-if %inputWF13% equ A goto GameOver1WF13
-if %inputWF13% equ a goto GameOver1WF13
-if %inputWF13% equ B goto GameOver2WF13
-if %inputWF13% equ b goto GameOver2WF13
-if %inputWF13% equ C goto WF14
-if %inputWF13% equ c goto WF14
+if /I "%inputWF13%"=="a" goto GameOver1WF13
+if /I "%inputWF13%"=="b" goto GameOver2WF13
+if /I "%inputWF13%"=="c" goto WF14
 
 goto WF13
 
@@ -934,10 +863,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF13=Continue?
 
-if %inputGOWF13% equ Y goto WF13
-if %inputGOWF13% equ y goto WF13
-if %inputGOWF13% equ N goto startup
-if %inputGOWF13% equ n goto startup
+if /I "%inputGOWF13%"=="y" goto WF13
+if /I "%inputGOWF13%"=="n" goto startup
 
 goto GameOver1WF13
 
@@ -953,10 +880,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF13=Continue?:
 
-if %InputGO2WF13% equ Y goto WF13
-if %InputGO2WF13% equ y goto WF13
-if %InputGO2WF13% equ N goto startup
-if %InputGO2WF13% equ n goto startup
+if /I "%InputGO2WF13%"=="y" goto WF13
+if /I "%InputGO2WF13%"=="n" goto startup
 
 goto GameOver2WF13
 
@@ -973,12 +898,9 @@ echo C) Wait and see what happens
 echo ------===========================------
 set /p InputWF14=Enter:
 
-if %InputWF14% equ A goto GameOver1WF14
-if %InputWF14% equ a goto GameOver1WF14
-if %InputWF14% equ B goto WF15
-if %InputWF14% equ b goto WF15
-if %InputWF14% equ C goto GameOver2WF14
-if %InputWF14% equ c goto GameOver2WF14
+if /I "%InputWF14%"=="a" goto GameOver1WF14
+if /I "%InputWF14%"=="b" goto WF15
+if /I "%InputWF14%"=="c" goto GameOver2WF14
 
 goto WF14
 
@@ -994,10 +916,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF14=Continue?:
 
-if %InputGOWF14% equ Y goto WF14
-if %InputGOWF14% equ y goto WF14
-if %InputGOWF14% equ n goto startup
-if %InputGOWF14% equ N goto startup
+if /I "%InputGOWF14%"=="y" goto WF14
+if /I "%InputGOWF14%"=="n" goto startup
 
 goto GameOver1WF14
 
@@ -1013,10 +933,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF14=Continue?:
 
-if %InputGO2WF14% equ Y goto WF14
-if %InputGO2WF14% equ y goto WF14
-if %InputGO2WF14% equ n goto startup
-if %InputGO2WF14% equ N goto startup
+if /I "%InputGO2WF14%"=="y" goto WF14
+if /I "%InputGO2WF14%"=="n" goto startup
 
 goto GameOver2WF14
 
@@ -1034,12 +952,9 @@ echo C) Jump.
 echo ------===========================------
 set /p InputWF15=Enter:
 
-if %InputWF15% equ A goto GameOver1WF15
-if %InputWF15% equ a goto GameOver1WF15
-if %InputWF15% equ b goto GameOver2WF15
-if %InputWF15% equ B goto GameOver2WF15
-if %InputWF15% equ C goto WF16
-if %InputWF15% equ c goto WF16
+if /I "%InputWF15%"=="a" goto GameOver1WF15
+if /I "%InputWF15%"=="b" goto GameOver2WF15
+if /I "%InputWF15%"=="c" goto WF16
 
 goto WF15
 
@@ -1055,10 +970,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF15=Continue?
 
-if %InputGOWF15% equ Y goto WF15
-if %InputGOWF15% equ y goto WF15
-if %InputGOWF15% equ N goto startup
-if %InputGOWF15% equ n goto startup
+if /I "%InputGOWF15%"=="y" goto WF15
+if /I "%InputGOWF15%"=="n" goto startup
 
 goto GameOver1WF15
 
@@ -1075,10 +988,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF15=Continue?:
 
-if %InputGO2WF15% equ Y goto WF15
-if %InputGO2WF15% equ y goto WF15
-if %InputGO2WF15% equ N goto startup
-if %InputGO2WF15% equ n goto startup
+if /I "%InputGO2WF15%"=="y" goto WF15
+if /I "%InputGO2WF15%"=="n" goto startup
 
 goto GameOver2WF15
 
@@ -1094,12 +1005,9 @@ echo C) Shoot at Cryodin
 echo ------===========================------
 set /p InputWF16=Enter:
 
-if %InputWF16% equ A goto WF17
-if %InputWF16% equ a goto WF17
-if %InputWF16% equ B goto GameOver1WF16
-if %InputWF16% equ b goto GameOver1WF16
-if %InputWF16% equ C goto GameOver2WF16
-if %InputWF16% equ c goto GameOver2WF16
+if /I "%InputWF16%"=="a" goto WF17
+if /I "%InputWF16%"=="b" goto GameOver1WF16
+if /I "%InputWF16%"=="c" goto GameOver2WF16
 
 goto WF16
 
@@ -1115,10 +1023,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF16=Continue?:
 
-if %InputGOWF16% equ Y goto WF16
-if %InputGOWF16% equ y goto WF16
-if %InputGOWF16% equ N goto startup
-if %InputGOWF16% equ n goto startup
+if /I "%InputGOWF16%"=="y" goto WF16
+if /I "%InputGOWF16%"=="n" goto startup
 
 goto GameOver1WF16
 
@@ -1134,10 +1040,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p inputGO2WF16=Continue?:
 
-if %InputGO2WF16% equ Y goto WF16
-if %InputGO2WF16% equ y goto WF16
-if %InputGO2WF16% equ N goto startup
-if %InputGO2WF16% equ n goto startup
+if %InputGO2WF16%"=="y" goto WF16
+if %InputGO2WF16%"=="n" goto startup
 
 goto GameOver2WF16
 
@@ -1152,10 +1056,8 @@ echo B) ...
 echo ------===========================------
 set /p InputWF17=Enter:
 
-if %InputWF17% equ a goto WF18
-if %InputWF17% equ A goto WF18
-if %InputWF17% equ b goto GameOver1WF17
-if %InputWF17% equ B goto GameOver1WF17
+if %InputWF17%"=="a" goto WF18
+if %InputWF17%"=="b" goto GameOver1WF17
 
 goto WF17
 
@@ -1171,11 +1073,9 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF17=Continue?:
 
-if %InputGOWF17% equ ... goto SecretWF17
-if %InputGOWF17% equ Y goto WF17
-if %InputGOWF17% equ y goto WF17
-if %InputGOWF17% equ N goto startup
-if %InputGOWF17% equ n goto startup
+if /I "%InputGOWF17%"=="..." goto SecretWF17
+if /I "%InputGOWF17%"=="y" goto WF17
+if /I "%InputGOWF17%"=="n" goto startup
 
 goto GameOver1WF17
 
@@ -1206,12 +1106,9 @@ echo C) Sit there
 echo ------===========================------
 set /p InputWF18=Enter:
 
-if %InputWF18% equ A goto WF19
-if %InputWF18% equ a goto WF19
-if %InputWF18% equ B goto GameOver1WF18
-if %InputWF18% equ b goto GameOver1WF18
-if %InputWF18% equ C goto GameOver2WF18
-if %InputWF18% equ c goto GameOver2WF18
+if /I "%InputWF18%"=="a" goto WF19
+if /I "%InputWF18%"=="b" goto GameOver1WF18
+if /I "%InputWF18%"=="c" goto GameOver2WF18
 
 goto WF18
 
@@ -1228,10 +1125,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOWF18=Continue?:
 
-if %InputGOWF18% equ Y goto WF18
-if %InputGOWF18% equ y goto WF18
-if %InputGOWF18% equ N goto startup
-if %InputGOWF18% equ n goto startup
+if /I "%InputGOWF18%"=="y" goto WF18
+if /I "%InputGOWF18%"=="n" goto startup
 
 goto GameOver1WF18
 
@@ -1248,10 +1143,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF18=Continue?:
 
-if %InputGO2WF18% equ Y goto WF18
-if %InputGO2WF18% equ y goto WF18
-if %InputGO2WF18% equ N goto WF18
-if %InputGO2WF18% equ n goto WF18
+if /I "%InputGO2WF18%"=="y" goto WF18
+if /I "%InputGO2WF18%"=="n" goto WF18
 
 goto GameOver2WF18
 
@@ -1266,8 +1159,7 @@ echo A) Skit on outta here.
 echo ------===========================------
 set /p InputWF19=Enter:
 
-if %InputWF19% equ A goto WFENDING
-if %InputWF19% equ a goto WFENDING
+if /I "%InputWF19%"=="a" goto WFENDING
 
 :WFENDING
 cls
@@ -1284,12 +1176,3 @@ pause >nul
 set WFClear=1
 
 goto Play
-
-
-
-
-
-
-
-
-
