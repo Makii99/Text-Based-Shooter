@@ -1,6 +1,6 @@
 @echo off
-TITLE ---=====Shooter Beta=====---
-mode con: cols=80 lines=35
+TITLE ---=====Shooter Alpha=====---
+mode con: cols=75 lines=30
 :::
 ::: ________  ___  ___  ________  ________  _________  _______   ________     
 :::|\   ____\|\  \|\  \|\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -32,8 +32,8 @@ goto Notice
 cls
 mode con: cols=75 lines=30
 for /f "delims=: tokens=*" %%A in ('findstr /b :: "%~f0"') do @echo(%%A
-echo  	@====================Shooter Beta=======================@
-echo  	/   Welcome to Text Shooter Beta, Would you like to?    \ 
+echo  	@====================Shooter Alpha======================@
+echo  	/   Welcome to Text Shooter Alpha, Would you like to?   \ 
 echo  	\                                                       /
 echo  	/                  1. Play   4. Credits                 \
 echo  	\                  2. Info   5. Settings                /
@@ -43,9 +43,6 @@ echo  	@=======================================================@
 echo.
 set /p input0=Enter:
 
-set WFClear=0
-set HMClear=0
-set SHClear=0
 if %input0% equ Play goto Play
 if %input0% equ play goto Play
 if %input0% equ Info goto Info
@@ -65,7 +62,7 @@ goto startup
 cls
 echo @=========Mak-Settings v0.0.3=========@
 echo ( #                                 # )
-echo ( #    Welcome to Settings, Here's   # )
+echo ( #    Welcome to Settings, Heres   # )
 echo ( #        What you can do:         # )
 echo ( #    1. Music 2. Under Development# )       
 echo @=====================================@
@@ -155,8 +152,8 @@ goto DevConsoleCode
 :DevConsole
 cls
 echo    @======================================================@
-echo    / Hello Makii, or literally anyone else who finds this,\
-echo    \ Where would you like to go?                           /
+echo    / Hello Makii, or litteraly anyone else who finds this,\
+echo    \ Where would you like togo?                           /
 echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
 echo    \                                                      /
 echo    /         @================================@           \
@@ -222,10 +219,10 @@ goto WaterFallSelect
 :Secret!
 cls
 echo CONRGRATULAGIONS! YOU HAVE FOUND THE SECRET SCREEN!
-echo.
+echo Post a picture of this at lukeah115@gmail.com ;)
 echo For now, Enjoy the excitement of finding a secret
 echo PS: Do not share this with anyone, If you do...
-echo ...I won't do anything about it
+echo ...I wont do anything about it
 echo PPS: Press any button togo back to the Title Screen
 echo                                          Secret 1/2
 pause >nul
@@ -241,8 +238,10 @@ echo 1. When Enemies Get Close You Want To Shoot Them ;)
 echo 2. When Enemies Get Too Close You Want To Jump And Not Take Damage
 echo 3. Jump over pits.
 echo 4. Roll/Jump Over/Under Bullets That Enemies Shoot
-echo 5. Bosses are the main focus of an stage, Those are your targets.
-echo 6. You only have 1 hp (Hit Point) one hit and your OUT
+echo 5. Charge your Beam to do massive damage to enemies
+echo 6. If you dont Charge for 2 Moves the Beam will stay charged
+echo 7. Bosses are more difficult then normal enemies, Charge them beams
+echo 8. You only have 1 hp (Hit Point) one hit and your OUT
 echo The code is (1-4-7-2)
 echo Type "Back" to go back to the Title Screen
 echo.
@@ -267,11 +266,7 @@ echo    /Waterfalls                                \
 echo    @==========================================@
 set /p input1=Enter:
 
-if %WFClear% equ 1 (
-if %HMClear% equ 1 (
-if %SHClear% equ 1 goto THE END
-)
-)
+if 
 if %input1% equ Haunted Mansion goto HM1
 if %input1% equ haunted mansion goto HM1
 if %input1% equ Haunted mansion goto HM1
@@ -280,10 +275,17 @@ if %input1% equ Sunny Hills goto SH1
 if %input1% equ sunny hills goto SH1
 if %input1% equ Sunny hills goto SH1
 if %input1% equ sunny Hills goto SH1
-if %input1% equ Waterfalls goto WF1
-if %input1% equ waterfalls goto WF1
+if %input1% equ Waterfalls goto WF
+if %input1% equ waterfalls goto WF
 
 goto Play
+
+:WF
+cls
+mode con: cols=50 lines=10
+echo Press any button to Begin...
+pause >nul
+goto WF1
 
 :WF1
 cls
@@ -294,14 +296,13 @@ echo A) Walk around the Waterfalls
 echo B) Sit there and do nothing
 echo C) Jump in the Waterfalls
 echo ------=================================------
-echo.
 set /p inputWF1=Enter:
 
 if %InputWF1% equ A goto GameOver1WF1
-if %InputWF1% equ B goto WF2
-if %InputWF1% equ C goto GameOver2WF1
 if %InputWF1% equ a goto GameOver1WF1
+if %InputWF1% equ B goto WF2
 if %InputWF1% equ b goto WF2
+if %InputWF1% equ C goto GameOver2WF1
 if %InputWF1% equ c goto GameOver2WF1
 
 goto WF1
@@ -329,7 +330,7 @@ goto GameOver1WF1
 cls
 echo ------===============================------
 echo You jump in the Waterfalls, Little did you know
-echo the water was poisonous...
+echo the water was Poisenious...
 echo               GAME OVER!
 echo.
 echo.
@@ -348,9 +349,9 @@ goto GameOver2WF1
 cls
 echo ------=============================------
 echo You sit on a big rock, Turns out that
-echo big rock was actually a Button!
+echo big rock was aucually a Button!
 echo The Waterfalls open up a pathway...
-echo Do you...
+echo do you...
 echo.
 echo A) Go inside
 echo B) Sit on the rock some more
@@ -365,11 +366,13 @@ if %InputWF2% equ b goto GameOver1WF2
 if %InputWF2% equ C goto GameOver2WF2
 if %InputWF2% equ c goto GameOver2WF2
 
+goto WF2
+
 :GameOver1WF2
 cls
 echo ------===========================------
 echo You keep sitting on the rock,
-echo But some Enemies approach you!
+echo But some Enemies approach You!
 echo There are too many enemies for you.
 echo             GAME OVER!
 echo.
@@ -412,8 +415,8 @@ echo Enemies waiting for you, One of them
 echo Shoots a Bullet at you, and another one
 echo Runs at you... Do you...
 echo.
-echo A) Jump over the Enemy and the Bullet
-echo B) Roll under the Bullet and the Enemy
+echo A) Jump over the Enemie and the Bullet
+echo B) Roll under the Bullet and the Enemie
 echo C) Shoot a bullet
 echo ------===========================------
 echo.
@@ -471,7 +474,7 @@ cls
 echo ------===========================------
 echo You shoot the enemy, It dies, but
 echo the bullet is still after you...
-echo Do you...
+echo do you...
 echo.
 echo A) Roll under it
 echo B) Jump over it
@@ -491,8 +494,8 @@ echo ------===========================------
 echo You Dodged the bullet, There is a chance
 echo to strike the Enemy... Do you...
 echo.
-echo A) Jump over the enemy and move on
-echo B) Shoot the enemy and move on
+echo A) Jump over the enemie and move on
+echo B) Shoot the enemie and move on
 echo C) Charge your beam
 echo ------===========================------
 set /p InputWF5=Enter:
@@ -529,7 +532,7 @@ goto GameOverWF5
 cls
 echo ------===========================------
 echo You attempt to shoot the Enemy and kill
-echo it, but before it died, it shot a Bullet
+echo it, but before it died it shot a Bullet
 echo and that Bullet kills you...
 echo               GAME OVER!
 echo.
@@ -571,7 +574,7 @@ goto WF6
 cls
 
 echo ------===========================------
-echo You jump over the hole to look for secrets
+echo you jump over the hole to look for secrets
 echo ...And then you get blasted by a laser
 echo              GAME OVER!
 echo.
@@ -638,8 +641,8 @@ echo Continue? (y/n)
 echo -----============================------
 set /p InputGOWF7=Continue?:
 
-if %InputGOWF7% equ Y goto WF7LASER1
-if %InputGOWF7% equ y goto WF7LASER1
+if %InputGOWF7% equ Y goto WF7
+if %InputGOWF7% equ y goto WF7
 if %InputGOWF7% equ N goto startup
 if %InputGOWF7% equ n goto startup
 
@@ -656,8 +659,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p InputGO2WF7=Continue?:
               
-if %InputGO2WF7% equ Y goto WF7LASER1
-if %InputGO2WF7% equ y goto WF7LASER1
+if %InputGO2WF7% equ Y goto WF7
+if %InputGO2WF7% equ y goto WF7
 if %InputGO2WF7% equ N goto startup
 if %InputGO2WF7% equ n goto startup
 
@@ -730,8 +733,8 @@ cls
 echo ------===========================------
 echo  You jump over the pits, like any
 echo  regular human being... but now
-echo  there is a door with a lock on it.
-echo  Do you...
+echo  there is a door with a lock on it
+echo  do you...
 echo.
 echo A) Try to break it with a Charged Beam
 echo B) Attempt to Picklock it
@@ -790,10 +793,10 @@ if %InputGO2WF9% equ n goto startup
 cls
 echo ------===========================------
 echo You charged a beam and blasted the door
-echo down, There's a boss waiting for you!
+echo down, Theres a boss waiting for you!
 echo The boss's name is Cryodin,
 echo Cryodin shoots Many crystal shards at you
-echo Do you...
+echo do you...
 echo.
 echo A) Shoot all the Shards down
 echo B) Move out of the way
@@ -914,7 +917,7 @@ echo     all the shards and hits Cryodin.
 echo     Now there are "Snowflakes"
 echo     everywhere, Do you...
 echo.
-echo A) Stand there hoping you dont get hit
+echo A) stand there hoping you dont get hit
 echo B) Attempt to dodge the Snowflakes
 echo C) Jump and shoot Cryodin
 echo ------===========================------
@@ -933,8 +936,8 @@ goto WF12
 cls
 echo ------===========================------
 echo   You sat there and dodged all the
-echo    Snowflakes- just kidding...
-echo           You Died
+echo    Snowflakes, just kidding...
+echo           you died
 echo.
 echo.
 echo             GAME OVER!
@@ -1003,7 +1006,7 @@ echo.
 echo             GAME OVER!
 echo Continue? (y/n)
 echo ------===========================------
-set /p InputGOWF13=Continue?
+set /p InputGOWF13
 
 if %inputGOWF13% equ Y goto WF13
 if %inputGOWF13% equ y goto WF13
@@ -1095,7 +1098,7 @@ goto GameOver2WF14
 cls
 echo ------===========================------
 echo   You jump on Cryodin, It took a hit
-echo     Just one more to go! it is now
+echo     Just one more togo! it is now
 echo       Firing Shards at you.
 echo            Do you...
 echo.
@@ -1275,90 +1278,7 @@ echo A) Go to the door that says "Exit"
 echo B) Go back to where you came from
 echo C) Sit there
 echo ------===========================------
-set /p InputWF18=Enter:
-
-if %InputWF18% equ A goto WF19
-if %InputWF18% equ a goto WF19
-if %InputWF18% equ B goto GameOver1WF18
-if %InputWF18% equ b goto GameOver1WF18
-if %InputWF18% equ C goto GameOver2WF18
-if %InputWF18% equ c goto GameOver2WF18
-
-goto WF18
-
-:GameOver1WF18
-cls
-echo ------===========================------
-echo    You went back to where you came
-echo     from. However. It was a trap!
-echo    Welp. Guess you know what's next
-echo.
-echo.
-echo             GAME OVER!
-echo Continue? (y/n)
-echo ------===========================------
-set /p InputGOWF18=Continue?:
-
-if %InputGOWF18% equ Y goto WF18
-if %InputGOWF18% equ y goto WF18
-if %InputGOWF18% equ N goto startup
-if %InputGOWF18% equ n goto startup
-
-goto GameOver1WF18
-
-:GameOver2WF18
-cls
-echo ------===========================------
-echo  You sit there and teleported back to
-echo     where you stared. Oh wait.
-echo            Wrong universe
-echo.
-echo.
-echo             GAME OVER!
-echo Continue? (y/n)
-echo ------===========================------
-set /p InputGO2WF18=Continue?:
-
-if %InputGO2WF18% equ Y goto WF18
-if %InputGO2WF18% equ y goto WF18
-if %InputGO2WF18% equ N goto WF18
-if %InputGO2WF18% equ n goto WF18
-
-goto GameOver2WF18
-
-:WF19
-cls
-echo ------===========================------
-echo   You went out the exit. Suprisingly
-echo      it wasent a trap. now just
-echo          skit on outta here
-echo.
-echo A) Skit on outta here.
-echo ------===========================------
-set /p InputWF19=Enter:
-
-if %InputWF19% equ A goto WFENDING
-if %InputWF19% equ a goto WFENDING
-
-:WFENDING
-cls
-echo @=====================================@
-echo \   You have successfully defeated    /
-echo /   the stage "Waterfalls", you can   \
-echo \   replay it if you want to.         /
-echo /                                     \
-echo \                                     /
-echo / Press any button to continue...     \
-echo @=====================================@
-pause >nul
-
-set WFClear=1
-
-goto Play
-
-
-
-
+set /p 
 
 
 
