@@ -224,6 +224,36 @@ if /I "%input1%"=="Waterfalls" goto WF1
 
 goto Play
 
+:HM1
+cls
+echo ------===========================------
+echo You arrive at the Haunted Manson...
+echo Well, Outside it, You need to get inside.
+echo            Do you decide to...
+echo.
+echo A) Knock on the door.
+echo B) Lockpick the door.
+echo C) Open the door.
+echo ------===========================------
+set /p InputHM1="Enter:"
+
+if /I "%InputHM1%"=="a" goto GameOver1HM1
+if /I "%InputHM1%"=="b" goto GameOver2HM1
+if /I "%InputHM1%"=="c" goto HM2
+
+goto HM1
+
+:GameOver1HM1
+cls
+echo ------===========================------
+echo You knocked on the door. No one answered.
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGOHM1="Enter:"
+
 :WF1
 cls
 echo ------=================================------
@@ -1040,8 +1070,8 @@ echo Continue? (y/n)
 echo ------===========================------
 set /p inputGO2WF16=Continue?:
 
-if %InputGO2WF16%"=="y" goto WF16
-if %InputGO2WF16%"=="n" goto startup
+if /I "%InputGO2WF16%"=="y" goto WF16
+if /I "%InputGO2WF16%"=="n" goto startup
 
 goto GameOver2WF16
 
@@ -1056,8 +1086,8 @@ echo B) ...
 echo ------===========================------
 set /p InputWF17=Enter:
 
-if %InputWF17%"=="a" goto WF18
-if %InputWF17%"=="b" goto GameOver1WF17
+if /I "%InputWF17%"=="a" goto WF18
+if /I "%InputWF17%"=="b" goto GameOver1WF17
 
 goto WF17
 
