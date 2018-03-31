@@ -101,7 +101,7 @@ goto Settings
 :DevConsole
 cls
 echo    @======================================================@
-echo    / Hello literally anyone  who finds this,              \
+echo    / Hello literally anyone who finds this,               \
 echo    \ Where would you like to go?                          /
 echo    / (Please be aware that if there are bugs in the game, \
 echo    \  you won't be able to debug them by using this)      /
@@ -128,7 +128,7 @@ goto DevConsole
 :WaterFallSelect
 cls
 echo    @======================================================@
-echo    / Hello Makii, or litteraly anyone else who finds this,\
+echo    / Hello or litteraly anyone else who finds this,       \
 echo    \ Where would you like togo?                           /
 echo    / 1. Waterfalls 2. Sunny Hills 3. Haunted Mansion      \
 echo    \                                                      /
@@ -202,7 +202,7 @@ goto Info
 
 :Play
 cls
-mode con: cols=50 lines=10
+mode con: cols=50 lines=11
 echo    @==========================================@
 echo    /You see a Stage Selection in front of you:\
 echo    \there are 3 Stages, Each with a new theme,/
@@ -253,6 +253,28 @@ echo             GAME OVER!
 echo Continue? (y/n)
 echo ------===========================------
 set /p InputGOHM1="Enter:"
+
+if /I "%inputGOHM1%"=="y" goto HM1
+if /I "%inputGOHM1%"=="n" goto startup
+
+goto GameOver1HM1
+
+:GameOver2HM1
+cls
+echo ------===========================------
+echo You lockpicked the door open without
+echo a Lockpick... Like that will happen.
+echo.
+echo.
+echo             GAME OVER!
+echo Continue? (y/n)
+echo ------===========================------
+set /p InputGO2HM1="Enter:"
+
+if /I "%inputGOHM2%"=="y" goto HM1
+if /I "%inputGOHM2%"=="n" goto startup
+
+goto GameOver2HM1
 
 :WF1
 cls
@@ -653,9 +675,9 @@ echo  there is a door with a lock on it.
 echo  Do you...
 echo.
 echo A) Try to break it with a Charged Beam
-echo B) Attempt to Picklock it
+echo B) Attempt to Lockpick it
 echo C) Sit there... Staring into the lock
-echo ------===========================------
+echo ------===========================------s
 set /p InputWF9="Enter:"
 
 if /I "%inputWF9%"=="a" goto WF10BOSS
@@ -667,8 +689,8 @@ goto WF9LASERFIN
 :GameOver1WF9
 cls
 echo ------===========================------
-echo         You picklocked the lock
-echo       without a picklock on hand...
+echo         You lockpicked the lock
+echo       without a lockpick on hand...
 echo       As if, you gave up and starved.
 echo.
 echo.
